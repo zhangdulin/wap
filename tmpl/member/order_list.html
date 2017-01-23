@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/member.css">
+    
+</head>
+<body style=" max-width:640px; min-width:320px; margin:0 auto;">
+  <header id="header"></header>
+   <div style="width:100%; height:40px">
+   <ul class="order-list-headall clearfix" style="width:100%; display:inline-block; text-align: -webkit-center;text-align:center;">
+    <li class="order-list-next">
+    <a href="order_list.html" class="order-list-next">
+    <span>全部</span>
+    </a>
+    </li>
+    <li class="order-list-next">
+    <a href="order_list.html?state=10" class="order-list-next">
+    <span>待支付</span>
+    </a>
+    </li>
+     <li class="order-list-next">
+    <a href="order_list.html?state=20" class="order-list-next">
+    <span>待发货</span>
+    </a>
+    </li>
+     <li class="order-list-next">
+    <a href="order_list.html?state=30" class="order-list-next">
+    <span>待收货</span>
+    </a>
+    </li>
+     <li class="order-list-next">
+    <a href="order_list.html?state=40" class="order-list-next">
+    <span>待评价</span>
+    </a>
+    </li>
+   </ul>
+   </div>
+    <div class="order-list-wp" id="order-list" style="width: 100%;overflow: hidden;"></div>
+    <script type="text/html" id="order-list-tmpl">
+        <div class="order-list">
+            <%if (order_group_list.length >0){%>
+                <ul>
+                    <%for(var i = 0;i<order_group_list.length;i++){
+                        var orderlist = order_group_list[i].order_list;
+                    %>
+                        <li class="<%if(order_group_list[i].pay_amount){%>green-order-skin<%}else{%>gray-order-skin<%}%> <%if(i>0){%><%}%>">
+                            <!--<div class="order-ltlt">
+                                <p>
+                                    下单时间：
+                                   <%=$getLocalTime(order_group_list[i].add_time)%>
+                                </p>
+                            </div>-->
+                            <% for(var j = 0;j<orderlist.length;j++){
+                                var order_goods = orderlist[j].extend_order_goods;
+                            %>
+                                <div class="order-lcnt">
+                                    <!--<div class="order-lcnt-shop">
+                                        <p>店铺名称：<%=orderlist[j].store_name%></p>
+                                        <p>订单编号：<%=orderlist[j].order_sn%></p>
+                                    </div>-->
+                                    <div class="order-shop-pd">
+                                        <%for (var k = 0;k<order_goods.length;k++){%>
+                                        <a class="order-ldetail clearfix <%if(k>0){%>bd-t-de<%}%>" href="<%=WapSiteUrl%>/tmpl/product_detail.html?goods_id=<%=order_goods[k].goods_id%>">
+                                            <span class="order-pdpic">
+                                                <img src="<%=order_goods[k].goods_image_url%>"/>
+                                            </span>
+                                            <div class="order-pdinfor clearfix">
+                                                <p><%=order_goods[k].goods_name%></p>
+                                                <p style="float: right;margin-top:10px;padding: 0 0 0 50px;">
+                                                    <span class="clr-d94">￥<%=order_goods[k].goods_price%></span>
+                                                </p>
+                                                <p style="float:right;margin-top:8px;padding-left: 80%;">
+                                                    <span >×<%=order_goods[k].goods_num%></span>
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <%if(orderlist[j].if_receive){%><p style="line-height:20px;margin-left:10px;"><a href="/wap/tmpl/member/order_refund.html?order_goods_id=<%=orderlist[j].order_id%>,<%=order_goods[k].goods_id%>"><span style=" color:#1c1c1c;">退款/退货</span></a></p><%}%>
+                                        <%}%>
+                                    </div>
+                                    <div class="order-shop-total">
+									<p class="floatl">
+                                            <%
+                                                var stateClass ="ot-finish";
+                                                var orderstate = orderlist[j].order_state;
+                                                if(orderstate == 20 || orderstate == 30 || orderstate == 40){
+                                                    stateClass = stateClass;
+                                                }else if(orderstate == 0) {
+                                                    stateClass = "ot-cancel";
+                                                }else {
+                                                    stateClass = "ot-nofinish";
+                                                }
+                                            %>
+                                            <span class="<%=stateClass%>"><%=orderlist[j].state_desc%></span>
+                                        </p>
+                                        <p><span class="clr-c07">合计：<span style=" font-weight:600;color:#1c1c1c;">￥<%=orderlist[j].order_amount%> </span></span><span>（含运费：<span class="clr-d94">￥<%=orderlist[j].shipping_fee%></span>）</span></p>
+                             <div class="order-bottom-three"><ul class="order-bottom-threes">
+									   <li><a href="tel:15000238169"><span class="order-bottom-three-bor" ><span style="color:#1c1c1c;display: inline-block;">联系客服</span></span></a>
+									   </li>
+									   
+                                       <%if(orderlist[j].if_cancel){%><li>
+                                           <a href="javascript:void(0)" order_id="<%=orderlist[j].order_id%>" class="cancel-order"><span class="order-bottom-three-bor"><span style="color:#1c1c1c;display: inline-block;">取消订单</span></span></a>
+                                           
+									   </li> <%}%>
+									   
+									  <% if(orderlist[j].if_lock){%> <li>
+						     <p class="mt5"><span class="order-bottom-three-bor" ><span style="color:#1c1c1c;display: inline-block;">退货退款中</span></span></p>
+							          </li><%}%>
+									   <%if(orderlist[j].if_receive){%> <li>	
+									 
+                                            <a href="javascript:void(0)" order_id="<%=orderlist[j].order_id%>" class="viewdelivery-order" style="padding:0;"><span class="order-bottom-three-bor" ><span style="color:#1c1c1c;display: inline-block;">查看物流</span></span></a>
+                                            
+									   </li> <%}%>
+								       <%if(orderlist[j].if_receive){%> <li> 
+									      
+                                            <a href="javascript:void(0)" order_id="<%=orderlist[j].order_id%>" class="sure-order" style="padding:0;"><span class="order-bottom-three-bor" style=" border:1px solid #feb0cd;"><span style="color:#f24d89;display: inline-block;">确认收货</span></span></a>
+                                
+									   </li>  <%}%>
+								
+									 <%if(order_group_list[i].pay_amount && order_group_list[i].pay_amount>0){%> <li> 
+                              <a href="/mobile/api/payment/wxpay_v3/pay/jsapi.php?pay_sn=<%=order_group_list[i].pay_sn %>" class="l-btn-login check-payment"><span class="order-bottom-three-bor" style=" border:1px solid #feb0cd;"><span style="color:#f24d89;display: inline-block;">付款</span></span><!--（￥<%= p2f(order_group_list[i].pay_amount) %>）--></a>
+                              <p class="clearfix"> </p>  
+						  <a id="a-check-onlinepayment" pay_sn="<%=order_group_list[i].pay_sn %>" pay_amount="<%= p2f(order_group_list[i].pay_amount) %>" class="l-btn-login  check-onlinepayment" style="display:none;">积分支付（<%= p2f(order_group_list[i].pay_amount) %> 分）</a>
+                                       
+									   </li><%}%>
+					 <% if(orderlist[j].evaluation_state == 1){%> <li> 
+	                                        <p class="mt5"><span class="order-bottom-three-bor"><span style="color:#1c1c1c;display: inline-block;">已评价</span></span></p>
+	                                        <p class="mt5">
+	                                        <a href="/wap/tmpl/member/re-evaluation-order.html?order_id=<%=orderlist[j].order_id%>" order_id="<%=orderlist[j].order_id%>" class="evaluation-order" style="padding: 5px 4px;"><span class="order-bottom-three-bor"><span style="color:#1c1c1c;display: inline-block;">追加评价</span></span></a>
+	                                        </p> 
+                                      </li> <%}%>
+									 <% if(orderlist[j].evaluation_state == 2){%> <li>
+                                       <p class="mt5"><span class="order-bottom-three-bor"><span style="color:#1c1c1c;display: inline-block;">已追加评价</span></span></p>                        </li>  <%}%>
+                                      <%if(orderlist[j].if_evaluation){%> <li> 
+                                            <a href="/wap/tmpl/member/evaluation-order.html?order_id=<%=orderlist[j].order_id%>" order_id="<%=orderlist[j].order_id%>" ><span class="order-bottom-three-bor" style=" border:1px solid #feb0cd;"><span style="color:#f24d89;display: inline-block;">评价</span></span></a>
+                                          
+									   </li> <%}%> 
+									   </ul>
+									   </div>							
+                                        <p class="mt5">
+                                            <!--//取消订单的位置-->
+                                          <!-- <%if(orderlist[j].if_deliver){%>
+                                            <a href="javascript:void(0)" order_id="<%=orderlist[j].order_id%>" class="viewdelivery-order">查看物流</a>
+                                            <%}%>-->
+                                        </p>
+                                    </div>
+                                </div>
+                            <%}%>
+                         <!--//订单支付的位置-->
+                        </li>
+                    <%}%>
+                </ul>
+                <div class="pagination mt10">
+                    <a href="javascript:void(0);" class="pre-page <%if(curpage <=1 ){%>disabled<%}%>">上一页</a>
+                   <a href="javascript:void(0);" has_more="<%if (hasmore){%>true<%}else{%>false<%}%>"  class="next-page <%if (!hasmore){%>disabled<%}%>">下一页</a>
+                </div>
+            <%}else {%>
+                <div class="no-record">
+                    暂无记录
+                </div>
+            <%}%>
+        </div>
+    </script>
+    <div id="footer"></div>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/template.js"></script>
+    <script type="text/javascript" src="../../js/config.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/simple-plugin.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/order_list.js"></script>
+    <script type="text/javascript" src="../../js/layer.m/layer.m.js"></script>
+</body>
+</html>

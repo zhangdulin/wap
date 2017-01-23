@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人分销中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/member-distribution.css">
+</head>
+<body class="member-body" style="background-color: #f1f4f4;">
+    <!-- <header id="header"></header> -->
+	<div class="main">
+        <div class="header_content">
+            <div class="userinfo">
+                <a href="javascript:void(0);">
+                <div class="avatar"><img src="../../images/avatar_icon.png" style="border-radius:50%;overflow:hidden;" id="username_imge">
+                </a>
+            </div>       
+        </div>
+        <div class="username">
+          <span id="username" style=" height:16px;font-size:16px; overflow:hidden; text-align:-webkit-center; text-align:center;text-overflow: ellipsis;white-space: nowrap;"></span>
+         </div>
+        <div class="account_info">
+            <ul style="text-align:center;background-color: #000;">
+                    <!--<li>优惠券<br/><a href="voucher_list.html?voucher_state=1">0</a></li>
+                    <li class="xileft">余额<br/>¥<span id="predepoit"></span></li>
+                    <li class="xiright">积分<br/><span id="point"></span></li>-->
+                    <li  style="float:left;">可提现金额<br/>¥<span id="deposit"></span></li>
+                    <li  style="float:right; border-left:1px solid #efefef; width:50.5%;"><p >冻结金额<br/><span id="frozen_amount"></span></p></li>
+                </ul>
+            </div>
+        </div>
+         <li style="position:absolute;top:25px;left:88%; ">
+           <a href="msg_list.html">
+           <img src="../../images/member/member/messages.png" style="width:22px;height:18px;" class="">
+            </a>
+          </li>
+		<div class="center_content">
+			<!--<div class="title">
+				<div class="my_order"><span class="text"> 会员中心</span></div>
+			</div>-->
+			<ul style=" position:relative;">
+				<a href="distribution_income.html"><li><h3>团队业绩</h3><p id="team_results"></p></li>
+                <hr style="height: 40px;width: 1px; border:0px; background-color:#f2f3f5;position: absolute;left: 33%;top:10%;"/></a>
+				<a href="distribution_income.html"><li ><h3>我的收入</h3><p id="retail_income"></p></li>
+                <hr style="height: 40px;width: 1px;border:0px;background-color:#f2f3f5;position: absolute;left: 66%;top:10%;"/></a>
+				<a href="distribution_myIdentity.html"><li ><h3>我的身份</h3><p id="dis_status"></p></li></a>
+			</ul>
+			<div class="recs">
+			<p>您是由：<span>【&nbsp;&nbsp;<span id="rec_id"></span>&nbsp;&nbsp;】</span>推荐</p>
+			</div>
+		</div>
+		<div class="bottom_content">
+         <a href="distribution_sharebroker.html">
+          <div class="item">
+			<span class="item_name">分享经纪人</span><span class="right_icon"></span><span class="num"><span id="all_level_num"></span>人</span>
+		  </div>
+         </a>
+         <!--下拉单-->
+			<!--<div class="item_content">
+				<ul>
+					<a href="agents.html?level=1"><li><span class="item_name">VIP Air</span><span class="right_icon"></span><span class="num_f"><span id="first_level_num"></span>人</span></li></a>
+					<a href="agents.html?level=2"><li><span class="item_name">VIP Pro</span><span class="right_icon"></span><span class="num_f"><span id="second_level_num"></span>人</span></li></a>
+					<a href="agents.html?level=3"><li><span class="item_name">VIP Max</span><span class="right_icon"></span><span class="num_f"><span id="third_level_num"></span>人</span></li></a>
+				</ul>
+			</div>-->
+			<a href="distribution_expert.html">
+            <div class="item" style="border-bottom:8px solid #f1f3f5;border-top:8px solid #f1f3f5;">
+             <span class="item_name floatl" style="font-size:17px;color:#181818; margin-left:10px;">我是分享达人</span>
+             <span class="right_icon"></span>
+             <span class="floatr" style="font-size:15px;color:#828282; margin-right:14px;">推广二维码</span>
+            </div></a>
+            <!--下拉单-->
+			<!--<div class="item_content">
+				<li style="text-align: center"><span id="qr_code"></span></li>
+			</div>-->
+			<a href="withdraw_add.html">
+            <div class="item">
+				<span class="item_name">申请提现</span><span class="right_icon"></span>
+			</div>
+            </a>
+            <a href="withdraw_history.html">
+             <div class="item">
+				<span class="item_name">提现记录</span><span class="right_icon"></span>
+			 </div>
+            </a>
+		</div>    
+	</div>
+    <div class="footer" id="footer"></div>
+    <script type="text/javascript" src="../../js/config.js"></script>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/template.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/distribution.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>填写核对购物信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/buy-step.css">
+</head>
+<body style="min-width:320px; max-width:640px; background-color:#f1f4f4; margin:0 auto;">
+    <header id="header"></header>
+    <div class="buy_step1" style=" width:100%;">
+        <div class="buys1-cnt" id="container-fcode" style="display:none;">
+           <h3 class="clearfix">使用F码购买商品</h3>
+           <ul class="buys-ycnt">
+                <li class="clearfix buys-yc-type">
+                    <p class="clearfix">
+                        <input type="text" class="mr5 h22" name="fcode" id="fcode" placeholder="输入F码" />
+                    </p>
+                    <p class="fcode_error_tip" style="display:none;color:red;"></p>
+                </li>
+           </ul>  
+        </div>
+       <div class="buys1-cnt buys1-address-cnt" style=" background-color:#fff; margin-bottom:8px; margin-top:8px;">
+           <span class="btn-s fright buys1-edit-address buys1-edit-btn" style="padding-top:20px;"><img src="../../images/gooddetial/jiantou.png" style=" height:16px; display:inline-block;" /></span>
+           <p class="buys1-edit-address buys1-edit-btn" style=" position:absolute;top:0; height:50px;width:100%; Filter:Alpha(opacity=0);-moz-opacity:0;opacity:0"></p>
+           <ul class="buys-ycnt buys1-hide-detail clearfix">
+               <li style="display: inline-block;padding-left: 6px;margin-top: 19px;float: left;">
+               <img src="../../images/gooddetial/address.png"  style="height: 20px;"/>
+               </li>
+                <li class="clearfix" style="margin-left: 10px; padding-top:6px;font-size: 16px">
+                   <span>
+                    <span class="key fleft" style="margin-left: 10px;"></span>
+                    <span class="value fleft" id="true_name" style="margin-left: 10px;"></span>
+                   </span> 
+                  <span class="clearfix" >
+                    <span class="key floatr"></span>
+                    <span class="value floatr" id="mob_phone" style="padding-right:10px;" ></span>
+                  </span>
+                </li>
+                <li class="clearfix" style="width: 100%; height:16px;display: inline-block;">
+                    <span class="key fleft" style="font-size:15px;padding-left:30px;">收货地址：</span>
+                    <span class="value fleft" id="address" style=" height:16px; width:200px;font-size:15px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;"></span>
+                </li>
+           </ul>
+           <ul class="buys1-hide-list buys-ycnt hide">
+                <li id="addresslist">
+                    <div class="new-address clearfix" id="new-address-button" style="color: #060606;font-size: 17px;text-align: center;text-align: -webkit-center; line-height:60px; margin-bottom: 10px;">
+                     + 新增收货地址
+                     <img src="../../images/gooddetial/jiantou.png" class="address-radio floatr" id="new-address-imgs" style="margin: 20px 16px 0 0; height:16px;" />
+                    </div>
+                    <div id="new-address-wrapper" style="display:none; z-index:999; width:100%; overflow:hidden;margin-bottom:80px;">
+                        <div style="display:block;">
+                            <p class="iadd-ip"><span class="opera-tips">*</span>收货人:</p>
+                            <p class="iadd-ip">
+                                <input type="text" class="n-input h22 wp100" name="true_name" id="vtrue_name"/>
+                            </p>
+                            <p class="iadd-ip"><span class="opera-tips">*</span>手机号码:</p>
+                            <p class="iadd-ip">
+                                <input type="text" class="n-input h22 wp100" name="mob_phone" id="vmob_phone"/>
+                            </p>
+                        </div>
+                        <p class="iadd-title"><span class="opera-tips">*</span>地址信息：</p>
+                        <div>
+                          <p class="iadd-ip" style="padding-left:4px;">省份:</p>
+                            <p class="iadd-ip">
+                    <select class="select-30" name="prov" id="vprov">
+                  <option value="">请选择...</option>
+                    </select>
+                            </p>
+                            <p class="iadd-ip" style="padding-left:4px;">城市：</p>
+                            <p class="iadd-ip">
+                <select class="select-30" name="city" id="vcity">
+                  <option value="">请选择...</option>
+                    </select>
+                            </p>
+                            <p class="iadd-ip" style="padding-left:4px;"> 区县:</p>
+                            <p class="iadd-ip">
+                    <select class="select-30" name="region" id="vregion">
+                  <option value="">请选择...</option>
+                    </select>
+                            </p>
+                            <p class="iadd-ip" style="padding-left:4px;"><span class="opera-tips">*</span>详细地址：</p>
+                            <p class="iadd-ip">
+                                <input type="text" class="n-input h22 wp100" name="vaddress" id="vaddress">
+                            </p>
+                            <div class="invoice_opeara">
+                    <a href="javascript:void(0);" class="btn-prink save-address" style="padding:0;">保存地址信息</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="error-tips"></div>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="buys1-cnt" style=" display:none" >
+           <h3 class="clearfix">支付方式</h3>
+           <ul class="buys-ycnt">
+                <li class="clearfix buys-yc-type">
+                    <label id="online">
+                        <input type="radio"   style=" display:none" name="buy-type" class="mr5" checked value="online" id="buy-type-online">在线支付
+                    </label>
+                    <label class="mt5"  style=" display:none"  id="offline">
+                        <input type="radio" name="buy-type" class="mr5" value="offline" id="buy-type-offline"/>货到付款
+                    </label>
+                            <p class="clearfix " id="wrapper-usepdpy">
+                        <label>
+                            <input type="checkbox" class="mr5" id="usepdpy" />使用预存款支付
+                        </label>
+                        (可用金额为<span class="pre-doposit-money clr-d94">￥<span id="available_predeposit"></span></span>)
+                    </p>
+                      <div id="pd" class="hide">
+                        <p class="clearfix">
+                            支付密码：<input type="password" class="mr5 h22" name="loginpassword" id="loginpassword" />
+                        </p>
+                        <p class="password_error_tip" style="display:none;color:red;"></p>
+                        <p>
+                            <span class="btn-s btn-yello-s" id="pguse">使用</span>
+                        </p>
+                      </div>
+                </li>
+           </ul>
+        </div>
+       <div class="buys1-cnt buys1-invoice-cnt" style="display:none;">
+           <h3 class="clearfix">发票信息 <span class="btn-s btn-prink-s buys1-edit-invoice buys1-edit-btn fright">修改</span></h3>
+           <ul class="buys-ycnt buys1-hide-detail">
+                 <li class="clearfix">
+                    <div class="value fleft" id="inv_content"></div>
+                </li>
+           </ul>
+            <ul class="buys1-hide-list buys-ycnt hide">
+                <li id="invoice_add">
+                    <label class="new-invoice clr-d94">
+                        <input type="radio" name="invoice" value="0" class="inv-radio"/>
+                        使用新的发票信息
+                    </label>
+                    <div class="invoice-addcnt">
+                        <div class="iadd-title">发票抬头：</div>
+                        <div class="iadd-item">
+                            <label>
+                                <input type="radio" checked="checked" name="inv_title_select" class="mr5" value="person" >个人
+                            </label>
+                            <label class="mt5">
+                                <input type="radio" name="inv_title_select" class="mr5 inv-tlt-sle" value="company">
+                                <span class="mr5">企业</span>
+                                <input type="text" class="input-30 head-invoice" name="inv_title">
+                            </label>
+                        </div>
+                        <div class="iadd-title">
+                            发票内容：
+                        </div>
+                        <p class="iadd-cnt">
+                            <select class="select-30" id="inc_content" name='inv_content'>
+                            </select>
+                        </p>
+                    </div>
+                </li>
+                <li class="invoice_opeara">
+                    <a href="javascript:void(0);" class="btn-prink save-invoice">保存发票信息</a>
+                    <a href="javascript:void(0);" class="btn-white no-invoice">不需要发票</a>
+                </li>
+            </ul>
+       </div>
+       <div class="buys1-cnt">
+           <h3 class="clearfix buys-dis-mei" style="height:32px; font-size:15px; background-color:#e8e8e8; line-height:32px; text-indent:10px;">商品清单<!--  <span class="btn-s btn-prink-s fright" onclick="javascript:history.go(-1);">去购物车</span> --> </h3>
+           <ul class="buys-ytable " id="goodslist_before">
+               <li id="deposit">
+                  <div class="pre-deposit-wp hide">
+                    <p class="clearfix hide" id="wrapper-usercbpay">
+                        <label>
+                            <input type="checkbox" class="mr5" id="usercbpay" />使用充值卡支付
+                        </label>
+                        (充值卡余额为<span class="pre-doposit-money clr-d94">￥<span id="available_rc_balance"></span></span>)
+                    </p>
+                    <p class="clearfix hide" id="wrapper-usepdpy">
+                        <label>
+                            <input type="checkbox" class="mr5" id="usepdpy" />使用预存款支付
+                        </label>
+                        (可用金额为<span class="pre-doposit-money clr-d94">￥<span id="available_predeposit"></span></span>)
+                    </p>
+
+                      <div id="pd" class="hide">
+                        <p class="clearfix">
+                            支付密码：<input type="password" class="mr5 h22" name="loginpassword" id="loginpassword" />
+                        </p>
+                        <p class="password_error_tip" style="display:none;color:red;"></p>
+                        <p>
+                            <span class="btn-s btn-yello-s" id="pguse">使用</span>
+                        </p>
+                      </div>
+                  </div>
+               </li>
+               <li>
+                   <div class="buys-order-total clearfix">
+                      <span style="float:left; margin-left:8px;"> 总计：￥<span id="total_price"></span>
+                      <span id="online-total-wrapper">（￥<span id="online-total">0.00</span>）</span></span>
+                      <a style="float:right; background-color:#010101; width:100px;" class="buy_step2">
+                        <span href="javascript:void(0);" id="buy_step2" style="font-size:15px; color:#fff; text-align:center; margin-left:20px;">提交订单</span>
+                      </a>
+                   </div>
+                </li>    
+           </ul>
+       </div>
+    </div>
+    <div id="footer"></div>
+    <input type="hidden" name="address_id">
+    <input type="hidden" name="area_id">
+    <input type="hidden" name="city_id">
+    <input type="hidden" name="freight_hash">
+    <input type="hidden" name="vat_hash">
+    <input type="hidden" name="allow_offpay">
+    <input type="hidden" name="offpay_hash">
+    <input type="hidden" name="offpay_hash_batch">
+  <input type="hidden" name="invoice_id">
+  <input type="hidden" name="passwd_verify" value="0">
+  <input type="hidden" name="total_price">
+  <input type="hidden" name="total_priceold">
+  <input type="hidden" name="available_rc_balance">
+  <input type="hidden" name="available_predeposit">
+
+    <script type="text/javascript" src="../../js/config.js"></script>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/template.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/simple-plugin.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/buy_step1.js"></script>
+    <script type="text/javascript" src="../../js/modelcss.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WORLD VIP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/child.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="css/swiper1-3.3.1.min.css">
+<link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css">
+</head>
+<body>
+  <div id="header" style="margin-right: 40px;">
+  <div class="index_block index_nav swiper-container1">
+	 <ul class="ulll  swiper-wrapper">
+		<li class="ulli swiper-slide" onclick="show()"><span class="changebotttom shouyeactive">首页</span></li>	
+		<li  onclick="show(32)" class="swiper-slide"><span class="changebotttom">颜值控</span></li>
+		<li  onclick="show(33)" class="swiper-slide"><span class="changebotttom">肌肤之亲</span></li>
+		<li  onclick="show(34)" class="swiper-slide"><span class="changebotttom">吃货记忆</span></li>
+		<li  onclick="show(35)" class="swiper-slide"><span class="changebotttom">辣妈萌宝</span></li>	
+		<li  onclick="show(31)" class="swiper-slide"><span class="changebotttom">滋补保健</span></li>
+	</ul>
+     <!--<li class="swiper-scrollbar"></li>-->
+  </div>
+ </div>
+   <a href="/wap/search.html" class="clearfix">
+   <ul class="clearfix" style="text-align:center; float:right; width:40px;">
+   <hr class="souou_lis"/>
+   <li class="souou"></li>
+   </ul>
+   </a>
+<!-- <header id="header" class="main"></header>  -->
+<div class="main" id="main-container"></div>
+<footer id="footer" class="main"></footer>
+
+<script type="text/html" id="adv_list">
+	<div class="adv_list">
+		<div class="swipe-wrap">
+		<% for (var i in item) { %>
+			<div class="item">
+				<a href="<%= item[i].url %>">
+					<img src="<%= item[i].image %>" alt="">
+				</a>
+			</div>
+		<% } %>
+		</div>
+	</div>
+</script>
+<script type="text/html" id="home1">
+	<div class="index_block1 home1">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content">
+			<div class="item">
+				<a href="<%= url %>">
+					<img src="<%= image %>" alt="" style=" width:100%;display: block;display: -webkit-box;">
+				</a>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script type="text/html" id="home2">
+	<div class="index_block1 home2">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content">
+			<div class="item home2_1">
+				<a href="<%= square_url %>"><img src="<%= square_image %>" alt=""></a>
+			</div>
+			<div class="item home2_2">
+				<div class="border-left">
+					<div class="border-bottom">
+						<a href="<%= rectangle1_url %>"><img src="<%= rectangle1_image %>" alt=""></a>
+					</div>
+					<div>
+						<a href="<%= rectangle2_url %>"><img src="<%= rectangle2_image %>" alt=""></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script type="text/html" id="home3">
+	<div class="index_block1 home3">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content">
+		<% for (var i in item) { %>
+			<div class="item">
+				<a href="<%= item[i].url %>"><img src="<%= item[i].image %>" alt=""></a>
+			</div>
+		<% } %>
+		</div>
+	</div>
+</script>
+<script type="text/html" id="home4">
+	<div class="index_block1 home2">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content">
+			<div class="item home2_2">
+				<div class="border-right">
+					<div class="border-bottom">
+						<a href="<%= rectangle1_url %>"><img src="<%= rectangle1_image %>" alt=""></a>
+					</div>
+					<div>
+						<a href="<%= rectangle2_url %>"><img src="<%= rectangle2_image %>" alt=""></a>
+					</div>
+				</div>
+			</div>
+			<div class="item home2_1">
+				<a href="<%= square_url %>"><img src="<%= square_image %>" alt=""></a>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/html" id="goods">
+	<div class="index_block1 goods">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content">
+		<% for (var i in item) { %>
+			<div class="goods-item">
+				<a href="tmpl/product_detail.html?goods_id=<%= item[i].goods_id %>">
+					<div class="goods-item-pic"><img src="<%= item[i].goods_image %>" alt=""></div>
+					<div class="goods-item-name"><%= item[i].goods_name %></div>
+					<div class="goods-item-price">￥<%= item[i].goods_promotion_price %><span style="text-decoration:line-through;color:gray; font-size:0.9em ;padding-left: 2px;"  class="goods-item-marketprice">￥<%= item[i].goods_marketprice%></span>
+					</div>
+				</a>
+			</div>
+		<% } %>
+		</div>
+	</div>
+</script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/swipe.js"></script>
+<script type="text/javascript" src="js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="js/tmpl/footer.js"></script>
+<script type="text/javascript" src="js/special.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/swiper-3.3.1.jquery.min.js"></script>
+<script>        
+  var mySwiper = new Swiper ('.swiper-container1', {
+        direction:"horizontal",/*横向滑动*/
+        //loop:true,  
+        //freeModeMomentum : false,
+		//grabCursor : true,/*手状*/
+		//hashnav:true,/*锚点*/
+		//hashnavWatchState:true,
+		//autoplay:9000,
+		//spaceBetween : 10,
+		//slidesOffsetBefore : 50,/*预设与左边的偏移量*/
+        //scrollbar:'.swiper-scrollbar',
+		//scrollbarHide : false,
+       // scrollbarDraggable : true ,
+		//scrollbarSnapOnRelease : true ,
+		freeMode : true,
+        freeModeSticky : true,
+        
+		slidesPerView : 5,
+		centeredSlides : false,
+
+  breakpoints: { 
+    //当宽度小于等于320
+    320: {
+      slidesPerView: 4,
+      spaceBetweenSlides: 0
+    },
+   //当宽度小于等于480
+    375: { 
+      slidesPerView: 4,
+      spaceBetweenSlides: 0
+    },
+    //当宽度小于等于640
+    414: {
+      slidesPerView: 5,
+      spaceBetweenSlides: 0
+    }
+  }
+  }) 
+  //$(".ulll li").click(function(){
+//if($(this).index() <= 3){
+//		$(".ulll").animate({"left":-(18.2*$(this).index())+'%'});
+//	}else{
+//		if ($(this).index() != 5) {
+
+//			$(".ulll").animate({"left":0});
+//		};
+//	}
+//})      
+</script>
+<script>        
+  var mySwiper = new Swiper ('.swiper-container', {
+        direction:"horizontal",/*横向滑动*/  
+        loop:true,/*形成环路（即：可以从最后一张图跳转到第一张图*/ 
+		//effect : 'coverflow',
+		//slidesPerView: 3,
+		//centeredSlides: true,
+        pagination:".swiper-pagination",/*分页器*/  
+        prevButton:".swiper-button-prev",/*前进按钮*/  
+        nextButton:".swiper-button-next",/*后退按钮*/  
+        autoplay:2000,/*每隔3秒自动播放*/
+
+        slidesPerView : 3,
+        centeredSlides : false,
+  })        
+ </script>
+</body>
+</html>

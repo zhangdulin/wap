@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>历史礼券</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="../../css/reset.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<link rel="stylesheet" type="text/css" href="../../css/member.css">
+</head>
+<body style="background-color:#f2f2f2; max-width:640px;min-width:320px; margin:0 auto;">
+<header id="header"></header>
+<div class="voucher-list-wp" id="voucher-list"></div>
+<script type="text/html" id="voucher-list-tmpl">
+<div class="voucher-list">
+<div class="voucher_usehelp clearfix">
+ <% if (voucher_list && voucher_list.length > 0) { %>
+ <a href="/wap/tmpl/member/voucher_userhelp.html"><p><span></span>&nbsp使用说明</p></a>
+ <%}%>
+</div>
+<% if (voucher_list && voucher_list.length > 0) { %>
+<% for (var k in voucher_list) { var v = voucher_list[k]; %>
+	<% if(v.voucher_state == 2 ||v.voucher_end_date - timestamp < 0 ){ %>
+	<div class="voucher-item voucher-olditem">
+		<div class="voucher-img-wrapper">
+		    <span class="voucher-money voucher-oldmoney">
+		    <span>￥</span><%= v.voucher_price %>
+		    </span>
+			<!--<img alt="" src="<%= v.voucher_t_customimg %>" />-->
+		</div>
+		<div class="voucher_oldstate" id="voucher_oldstates">不可用</div>
+		<dl class="voucher-info">
+		<dd>
+
+		<% if (v.voucher_limit) { %>
+			购物满<%= v.voucher_price %>元可用
+		<% } %>
+		</dd>
+		<dd><hr class="voucher_hr"></dd>
+		<dd class="voucher-title">优惠券</dd>
+		<!--<dd>店铺：<%= v.store_name %></dd>-->
+		</dl>
+		<p class="clearfix">
+		<span>有效期至：<%= tsToDateString(v.voucher_end_date) %></span></p>
+	</div>
+	
+    	<% } %> 
+
+    <% }%>
+    <% if(v.voucher_state != 1 && v.voucher_end_date - timestamp > 0){ %>
+    		<div class="no-recordimg">
+		        <div class="no-recordimgs"></div>
+		        <p>您还没有相关代金券</p>
+		    </div>
+		<% } %>
+   
+<% }%> 
+</div>
+</script>
+<div id="footer"></div>
+<script type="text/javascript" src="../../js/zepto.min.js"></script>
+<script type="text/javascript" src="../../js/template.js"></script>
+<script type="text/javascript" src="../../js/config.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/simple-plugin.js"></script>
+<script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+<!-- <script type="text/javascript" src="../../js/tmpl/footer.js"></script> -->
+<script type="text/javascript" src="../../js/tmpl/voucher_listold.js"></script>
+</body>
+</html>

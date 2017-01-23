@@ -1,0 +1,30 @@
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl, dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td,iframe{margin:0; padding:0;}
+body,button,input,select,textarea { font-family:"Microsoft YaHei",tahoma,Verdana,Geneva,sans-serif; line-height: 1.5em;color:#222}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight: normal;}
+fieldset,img{border:0;}
+img{ vertical-align:top}
+address,caption,cite,dfn,em,th,var,optgroup{font-style:normal;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{display:block; margin:0; padding:0;}/* HTML5 */
+code,kbd,pre,samp{font-family:courier new,courier,monospace}
+ol,ul,li{list-style:none;}
+a{text-decoration:none; color:#222;}
+a:active{color:#052299;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+input,select,button{ vertical-align: baseline; *vertical-align:middle;font-family: tahoma, \5b8b\4f53, arial; font-size: 100%; border:none; background:none; }
+input[type=checkbox],input[type=radio]{vertical-align:middle; margin:0 5px;}
+input[type="text"],input[type="password"],textarea{outline-style:none;-webkit-appearance:none;}textarea{resize:none;}
+textarea{overflow:auto; font:100% tahoma,\5b8b\4f53,arial;}
+table{border-collapse:collapse; border-spacing:0;}
+.clearfix:after { content: "."; display: block; height: 0;  clear: both; visibility: hidden;}
+* html .clearfix {height: 1%;}
+*+html .clearfix {min-height: 1%;}
+*html{zoom:expression(function(ele){ele.style.zoom = "1";document.execCommand("BackgroundImageCache",false,true)}
+(this))}
+.fl{ float:left;}
+.fr{ float:right}
+body{height:100%;}
+footer, header {position: fixed;z-index: 10;background: #ECECEC;}
+footer{bottom: 0;}
+footer, header, section {width: 100%;-webkit-transition: all .3s;}
+

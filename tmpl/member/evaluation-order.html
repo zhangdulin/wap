@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品评价</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/member.css">
+    <style type="text/css">
+    textarea{
+    -webkit-user-select: all;
+    -moz-user-select: all;
+    -ms-user-select: all;
+    -o-user-select: all;      
+    }
+
+    </style>
+    
+</head>
+<body>
+    <header id="header"></header>
+    <div class="address-opera" id="order-list">
+    </div>
+    <div id="footer"></div>
+
+    <script type="text/html" id="order-list-tmpl">
+    <form>
+    <input id="order_id" name="order_id" type="hidden">
+    <input id="user_name" name="user_name" type="hidden">
+    <input id="user_id" name="user_id" type="hidden">
+    
+    <%if(extend_order_goods.length>0){%>
+        <%for(var i=0;i<extend_order_goods.length;i++){%>
+            <div class="address-ocnt">
+                <div class="address-octlt">商品名称</div>
+                <p>
+                   <%=extend_order_goods[i].goods_name%>
+                </p>
+                <div class="address-octlt">商品评分</div>
+                    <div class="raty">
+                      <input nctype="score" id="score" name="goods[<%=extend_order_goods[i].goods_id%>][score]" type="hidden">
+                    </div>
+                <div class="address-octlt">评价详情</div>
+                <p>
+                    <input name="goods[<%=extend_order_goods[i].goods_id%>][comment]" id="comment" style="width: 100%;" class="input-30">
+                </p>
+               
+            </div>
+            
+            
+        <%}%>
+        <div class="error-tips"></div>
+        <a class="add_address mt10" href="javascript:submit();" id="btn_submit">提交评价</a>
+    <%}%>
+    </form>
+    </script>
+
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/config.js"></script>
+    <script type="text/javascript" src="../../js/template.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/simple-plugin.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/evaluation-order.js"></script>
+    <script src="../../../data/resource/js/jquery.js"></script>
+    <script type="text/javascript" src="../../../data/resource/js/jquery.raty/jquery.raty.min.js"></script>
+</body>
+</html>

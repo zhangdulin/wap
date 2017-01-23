@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset='utf8'/>
+<title>首页</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">  
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css">
+</head>
+<body style=" background-color:#fff">
+<header class="main1">
+	<div class="header-wrap">
+		<div class="htsearch-wrap">
+			<!-- <a href="/wap/tmpl/product_first_categroy.html" class="cat"></a> -->
+			
+			<!--------------------------------- 搜索图标--------------------------- -->
+			<!--  <a href="javascript:void(0);" class="search-btn"></a>  -->
+			<!--  <a href="javascript:void(0);" class="show_input"></a>-->
+			<form action="tmpl/product_list.html" method='get'>
+				
+				<input type="text" class="htsearch-input clr-999" value="" id="keyword" placeholder="搜索商品"  name="keyword" style="border:solid #e6e6e6 1px;  " />
+				<div class="souou"></div>
+				<!-- <input type="submit" name="keyword" value="" />  -->
+			</form>
+			
+			
+			
+			<!--------------------- 消息框 ---------------------->
+			  <a href="/wap/tmpl/member/msg_list.html" class="message" id="message" style=" font-size:0px;"></a>
+		</div>
+	</div>
+</header>
+<div class="main" id="main-container">
+
+</div>
+<footer id="footer" class="main"></footer>
+
+
+
+
+
+
+
+
+<script type="text/html" id="adv_list">
+
+	<div class="adv_list">
+		<div class="swipe-wrap">
+		<% for (var i in item) { %>
+			<div class="item">
+				<a href="<%= item[i].url %>">
+					<img src="<%= item[i].image %>" alt="">
+				</a>
+			</div>
+		<% } %>
+		</div>
+	</div>
+	
+	
+	<div class="index_block index_nav"">
+	<ul>
+		<li><a href="/wap/tmpl/product_list.html?gc_id=832"><img src="./images/nav1.png"></a></li>
+	
+		<li><a href="/wap/tmpl/product_list.html?gc_id=827"><img src="./images/nav2.png"></a></li>
+
+		<li><a href="/wap/tmpl/product_list.html?gc_id=891"><img src="./images/hwmy.png"></a></li>
+		
+		<li><a href="/wap/tmpl/product_list.html?gc_id=824"><img src="./images/nav4.png"></a></li>
+		
+		
+<div class="clear_pp">
+<div class="ming_f"></div><div class="ming_f"></div><div class="ming_f"></div><div class="ming_f"></div>
+</div>	
+</ul>
+
+	
+	
+	<!--
+	<div class="baohan">
+		<div class="biankuang_top"></div>
+		<div class="img_span">
+			<img src="./images/mss.png" class="msimg" />
+			<span class="span_jx">极享秒杀</span>
+		</div>
+		<div class="smallshop">
+			<div class="small1" style=" margin-left: 10px;"><a href="/wap/tmpl/product_detail.html?goods_id=509"><img src="./images/mss1.jpg" ><span class="dazhe">&nbsp;7.1<span class="zhe">折</span></span></a></div>
+			<div class="small1"><a href="/wap/tmpl/product_detail.html?goods_id=530"><img src="./images/mss2.jpg" ><span class="dazhe">&nbsp;5.3<span class="zhe">折</span></span></a></div>
+			<div class="small1"><a href="/wap/tmpl/product_detail.html?goods_id=497"><img src="./images/mss3.jpg" ><span class="dazhe">&nbsp;3.7<span class="zhe">折</span></span></a></div>
+			
+		</div>
+		
+		<div class="bbao">
+		<div class="ms_wz">
+			<div class="ms_wz_ys"><span class="ms_wz_ys_1">￥49.00</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="ms_wz_ys_2">￥69.00</span></div>
+			<div class="ms_wz_ys"><span class="ms_wz_ys_1">￥58.00</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="ms_wz_ys_2">￥109.00</span></div>
+			<div class="ms_wz_ys"><span class="ms_wz_ys_1">￥38.00</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="ms_wz_ys_2">￥102.00</span></div>
+		</div>
+		<div class="ms_wz">
+			<div class="ms_wz_ys">法国蓝精灵半干型气泡酒</div>
+			<div class="ms_wz_ys">澳大利亚黄尾袋鼠茜拉干红葡萄酒187ml</div>
+			<div class="ms_wz_ys">西班牙爱之湾香橙味甜起泡酒750ml</div>
+		</div>
+		</div>
+		<div class="biankuang_bottom"></div>
+	</div>
+	-->
+	
+	</div>
+	<!-- <div class="index_block index_limit_buy" id="limit_buy"> -->
+
+	</div>
+</script>
+
+
+
+
+
+<!--swiper轮播-->
+<div style="position: absolute;top: 80%;">
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><a href="special.html"><img src="images/homepage/s0_05290330538702835.png" style="width:200px; height:150px;"/></a></div>
+        <div class="swiper-slide"><img src="images/homepage/s25_05290379761073123.jpg" style="width:200px; height:150px;"/></div>
+        <div class="swiper-slide"><img src="images/homepage/s0_05294106113679718.png" style="width:200px; height:150px;"/></div>
+        <div class="swiper-slide"><img src="images/homepage/s25_05290379761073123.jpg" style="width:200px; height:150px;"/></div>
+    
+    </div>
+ </div>
+</div>
+
+
+
+
+
+<script type="text/html" id="group_buy_tmp">
+		<div style="float:left;width:27%;">
+		<img src="./images/index_1.jpg" class="banner">
+		</div>
+		<div class="limit_buy">
+			<div class="time" style="font-size:12px"><img src="./images/clock_icon.png"><div class="show_time">剩余时间 <span id="d1">0</span> 天 <span id="h1">0</span> : <span id="m1">0</span> : <span id="s1">0</span></div></div>
+			<div class="items">
+				<ul>
+					<% for(var i=0; i<group_buy_list.length;i++) {%>
+					<li><a href="/wap/tmpl/product_detail.html?goods_id=<%=group_buy_list[i].goods_id%>"><img src="/data/upload/shop/groupbuy/8/<%=group_buy_list[i].groupbuy_image%>"></a></li>
+					<%}%>
+				</ul>
+			</div>
+		</div>
+</script>
+
+
+	
+
+
+
+
+
+
+
+<script type="text/html" id="home1">
+	
+	<div class="index_block home1" style="border:0px;">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content">
+		
+			<div class="item">
+				<a href="<%= url %>">
+				<div>
+					<img src="<%= image %>" alt="" style=" width:100%;margin-bottom:-5px;">
+				</a>
+			</div>
+		</div>
+		</div>
+	</div >
+</script>
+
+
+
+
+<!--<script type="text/html" id="home1">
+	
+	<div class="index_block home1" style="border:0px;">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content">
+		
+			<div class="item">
+				<a href="<%= url %>">
+				<div>
+					<img src="<%= image %>" alt="" style=" width:100%;margin-bottom:-5px;">
+				</a>
+			</div>
+		</div>
+		</div>
+	</div >
+</script>-->
+
+<script type="text/html" id="home2">
+	<div class="index_block home2">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content">
+			<div class="item home2_1" border-top:1px solid red;>
+				<a href="<%= square_url %>"><img src="<%= square_image %>" alt="" style=" width:100%; margin-bottom:-5px;"></a>
+			</div>
+			<div class="item home2_2">
+				<div class="border-left">
+					<div class="border-bottom">
+						<a href="<%= rectangle1_url %>"><img src="<%= rectangle1_image %>" alt="" style=" width:100%;margin-bottom:-5px;"></a>
+					</div>
+					<div>
+						<a href="<%= rectangle2_url %>"><img src="<%= rectangle2_image %>" alt="" style=" width:100%;margin-bottom:-5px;"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/html" id="home3">
+	<div class="index_block home3">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content"  >
+		<% for (var i in item) { %>
+			<div class="item">
+				<a href="<%= item[i].url %>"><img src="<%= item[i].image %>" alt="" style=" width:100%;"></a>
+			</div>
+		<% } %>
+		</div>
+	</div>
+</script>
+<script type="text/html" id="home4">
+	<div class="index_block home2">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content">
+			<div class="item home2_2">
+				<div class="border-right">
+					<div class="border-bottom">
+						<a href="<%= rectangle1_url %>"><img src="<%= rectangle1_image %>" alt="" style=" width:100%;"></a>
+					</div>
+					<div>
+						<a href="<%= rectangle2_url %>"><img src="<%= rectangle2_image %>" alt="" style=" width:100%;"></a>
+					</div>
+				</div>
+			</div>
+			<div class="item home2_1">
+				<a href="<%= square_url %>"><img src="<%= square_image %>" alt="" style=" width:100%;"></a>
+			</div>
+		</div>
+	</div>
+	
+</script>
+
+
+
+
+<di>
+
+<script type="text/html" id="goods">
+	<div class="index_block goods">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content" >
+		<% for (var i in item) { %>
+			<div class="goods-item" style=" border: 1px #f1f1f1 solid; margin-left: 3px;">
+				<a href="tmpl/product_detail.html?goods_id=<%= item[i].goods_id %>">
+					<div class="goods-item-pic"><img src="<%= item[i].goods_image %>" alt=""></div>
+					<div class="goods-item-name"><%= item[i].goods_name %></div>
+					<div class="goods-item-price">￥<%= item[i].goods_promotion_price %>&nbsp;&nbsp;<span style="text-decoration:line-through;color:gray; font-size:0.7em"; class="goods-item-marketprice" >￥<%=item[i].goods_marketprice%></span></div>
+				</a>
+			</div>
+		<% } %>
+		</div>
+	</div>
+</script>
+
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/swipe.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/tmpl/footer.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/swiper-3.3.1.jquery.min.js"></script>
+<script type="text/javascript"></script>
+
+<script>        
+  var mySwiper = new Swiper ('.swiper-container', {
+        direction:"horizontal",/*横向滑动*/  
+        loop:true,/*形成环路（即：可以从最后一张图跳转到第一张图*/ 
+
+//effect : 'coverflow',
+//slidesPerView: 3,
+//centeredSlides: true,
+        pagination:".swiper-pagination",/*分页器*/  
+        prevButton:".swiper-button-prev",/*前进按钮*/  
+        nextButton:".swiper-button-next",/*后退按钮*/  
+        autoplay:3000,/*每隔3秒自动播放*/
+
+slidesPerView : 3,
+centeredSlides : true,
+  
+
+  })        
+ </script>
+
+
+</body>
+</html>

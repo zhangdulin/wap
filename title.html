@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:wb="http://open.weibo.com/wb">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset='utf8'/>
+<title>WORLD VIP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="css/swiper1-3.3.1.min.css">
+<link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css">
+</head>
+<body style=" background-color:#fff; z-index:9999; max-width:640px; min-width:320px; margin:0 auto;">
+<!--<header class="main1">
+ <div class="header-wrap" >
+  <div class="index_block index_nav">
+   <ul class="ulll">
+	<li class="ulli"><a href="/wap/index.html" class="changecss">首页</a></li>	
+	<li><a href="/wap/tmpl/product_list.html?gc_id=832" class="changecss2">颜值控</a></li>
+	<li><a href="/wap/tmpl/product_list.html?gc_id=832"  class="changecss3">肌肤之亲</a></li>
+	<li><a href="/wap/tmpl/product_list.html?gc_id=827"  class="changecss4">吃货无节制</a></li>
+	<li><a href="/wap/tmpl/product_list.html?gc_id=891"  class="changecss5">妈咪宝贝</a></li>	
+	<li><a href="/wap/tmpl/product_list.html?gc_id=894"  class="changecss6">滋补保健</a></li>  
+<!--<div class="clear_pp">
+<div class="ming_f">美妆</div><div class="ming_f">美食</div><div class="ming_f">母婴</div><div class="ming_f">保健</div>
+</div>-->
+<!--</ul>
+</div>
+</header>
+-->
+<IFRAME NAME="content_frame" SRC="title.htm" ></IFRAME> 
+  <div id="header" style="margin-right: 40px;">
+  <div class="index_block index_nav swiper-container1">
+   <ul class="ulll swiper-wrapper">
+	<li class="ulli swiper-slide swiper_slide_li " ><a href="/wap/index.html" class="changebotttom shouyeactive">首页</a></li>	
+	<li class="swiper-slide swiper_slide_li" ><a href="/wap/special.html?special_id=32" class="changebotttom">颜值控</a></li>
+	<li class="swiper-slide swiper_slide_li" ><a href="/wap/special.html?special_id=33" class="changebotttom">肌肤之亲</a></li>
+	<li class="swiper-slide swiper_slide_li"><a href="/wap/special.html?special_id=34" class="changebotttom">吃货记忆</a></li>
+	<li class="swiper-slide swiper_slide_li" ><a href="/wap/special.html?special_id=35" class="changebotttom">辣妈萌宝</a></li>	
+	<li class="swiper-slide swiper_slide_li"><a href="/wap/special.html?special_id=31" class="changebotttom">滋补保健</a></li>
+	</ul>
+    <!--<li class="swiper-scrollbar"></li>-->
+  </div>
+  </div>
+   <a href="/wap/search.html" class="clearfix">
+   <ul class="clearfix" style="text-align:center; float:right; width:40px;">
+   <hr class="souou_lis"/>
+   <li class="souou"></li>
+   </ul>
+   </a>
+<div class="main" id="main-container"></div>
+<footer id="footer" class="main"></footer>
+<script type="text/html" id="adv_list">
+	<div class="adv_list">
+		<div class="swipe-wrap">
+		<% for (var i in item) { %>
+			<div class="item">
+				<a href="<%= item[i].url %>">
+					<img src="<%= item[i].image %>" alt="">
+				</a>
+			</div>
+		<% } %>
+		</div>
+	</div>
+	<!--
+	<div class="index_block index_nav" style=" height:85px; margin-top:10px;">
+		<ul>
+			<li><a href="./special.html?special_id=38"><img src="./images/bottom_menu/index_con4.png"></a></li>
+			<li><a href="/s11/s12_share.html"><img src="./images/bottom_menu/index_con7.png"></a></li>
+			<li><a href="./tmpl/member/voucher_list.html"><img src="./images/bottom_menu/index_con6.png"></a></li>	
+			<li><a href="./tmpl/product_share.html"><img src="./images/bottom_menu/index_con5.png"></a></li>	
+			<li><a href="./tmpl/member/distribution.html"><img src="./images/bottom_menu/index_con8.png"></a></li	
+	        <div class="clear_pp">
+    	<a href="./special.html?special_id=38"><div class="ming_f" style="font-size:12px">每周推荐</div></a>
+		<a href="/s11/s12_share.html"><div class="ming_f" style="font-size:12px">分享赚钱</div></a>
+		<a href="./tmpl/member/voucher_list.html"><div class="ming_f" style="font-size:12px">优惠券</div></a>
+		<a href="./tmpl/product_share.html"><div class="ming_f" style="font-size:12px">·抢福利</div></a>
+		<a href="./tmpl/member/distribution.html"><div class="ming_f" style="font-size:12px">分销中心</div></a>
+    </div>	
+ </ul>
+-->
+</div>
+	<!-- <div class="index_block index_limit_buy" id="limit_buy"> -->
+	</div>
+</script>
+
+<!--swiper轮播
+<div class="fix-swip">
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" ><a href="http://www.viptry.cn/wap/tmpl/product_detail.html?goods_id=835"><img src="images/huadong/1.png" style="width:100%;"/></a></div>
+        <div class="swiper-slide"><a href="http://www.viptry.cn/wap/tmpl/product_detail.html?goods_id=837"><img src="images/huadong/2.png" style="width:100%;"/></a></div>
+		 <div class="swiper-slide"><a href="http://www.viptry.cn/wap/tmpl/product_detail.html?goods_id=833"><img src="images/huadong/3.png" style="width:100%;"/></a></div>
+		  <div class="swiper-slide" ><a href="http://www.viptry.cn/wap/tmpl/product_detail.html?goods_id=843"><img src="images/huadong/4.png" style="width:100%;"/></a></div>
+        <div class="swiper-slide"><a href="http://www.viptry.cn/wap/tmpl/product_detail.html?goods_id=740"><img src="images/huadong/5.png" style="width:100%;"/></a></div>
+		 <div class="swiper-slide"><a href="http://www.viptry.cn/wap/tmpl/product_detail.html?goods_id=853"><img src="images/huadong/6.png" style="width:100%;"/></a></div>
+		<div class="swiper-slide"><a href="http://www.viptry.cn/wap/tmpl/product_detail.html?goods_id=780"><img src="images/huadong/7.png" style="width:100%;"/></a></div>
+		 <div class="swiper-slide"><a href="http://www.viptry.cn/wap/tmpl/product_detail.html?goods_id=663"><img src="images/huadong/8.png" style="width:100%;"/></a></div>
+        
+    </div>
+ </div>
+</div>
+-->
+<script type="text/html" id="group_buy_tmp">
+		<div style="float:left;width:27%;">
+		<img src="./images/index_1.jpg" class="banner">
+		</div>
+		<div class="limit_buy">
+			<div class="time" style="font-size:12px"><img src="./images/clock_icon.png"><div class="show_time">剩余时间 <span id="d1">0</span> 天 <span id="h1">0</span> : <span id="m1">0</span> : <span id="s1">0</span></div></div>
+			<div class="items">
+				<ul>
+					<% for(var i=0; i<group_buy_list.length;i++) {%>
+					<li><a href="/wap/tmpl/product_detail.html?goods_id=<%=group_buy_list[i].goods_id%>"><img src="/data/upload/shop/groupbuy/8/<%=group_buy_list[i].groupbuy_image%>"></a></li>
+					<%}%>
+				</ul>
+			</div>
+		</div>
+</script>
+<script type="text/html" id="home1">
+	<div class="index_block home1" style="border:0px;">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content">
+		
+			<div class="item">
+				<a href="<%= url %>">
+				<div>
+					<img src="<%= image %>" alt="" style=" width:100%;margin-bottom:-5px;">
+				</a>
+			</div>
+		</div>
+		</div>
+	</div >
+</script>
+<!--<script type="text/html" id="home1">
+	
+	<div class="index_block home1" style="border:0px;">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content">
+		
+			<div class="item">
+				<a href="<%= url %>">
+				<div>
+					<img src="<%= image %>" alt="" style=" width:100%;margin-bottom:-5px;">
+				</a>
+			</div>
+		</div>
+		</div>
+	</div >
+</script>-->
+<script type="text/html" id="home2">
+	<div class="index_block home2">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content">
+			<div class="item home2_1" border-top:1px solid red;>
+				<a href="<%= square_url %>"><img src="<%= square_image %>" alt="" style=" width:100%; margin-bottom:-5px;"></a>
+			</div>
+			<div class="item home2_2">
+				<div class="border-left">
+					<div class="border-bottom">
+						<a href="<%= rectangle1_url %>"><img src="<%= rectangle1_image %>" alt="" style=" width:100%;margin-bottom:-5px;"></a>
+					</div>
+					<div>
+						<a href="<%= rectangle2_url %>"><img src="<%= rectangle2_image %>" alt="" style=" width:100%;margin-bottom:-5px;"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/html" id="home3">
+	<div class="index_block home3">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content"  >
+		<% for (var i in item) { %>
+			<div class="item">
+				<a href="<%= item[i].url %>"><img src="<%= item[i].image %>" alt="" style=" width:100%;"></a>
+			</div>
+		<% } %>
+		</div>
+	</div>
+</script>
+<script type="text/html" id="home4">
+	<div class="index_block home2">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content">
+			<div class="item home2_2">
+				<div class="border-right">
+					<div class="border-bottom">
+						<a href="<%= rectangle1_url %>"><img src="<%= rectangle1_image %>" alt="" style=" width:100%;"></a>
+					</div>
+					<div>
+						<a href="<%= rectangle2_url %>"><img src="<%= rectangle2_image %>" alt="" style=" width:100%;"></a>
+					</div>
+				</div>
+			</div>
+			<div class="item home2_1">
+				<a href="<%= square_url %>"><img src="<%= square_image %>" alt="" style=" width:100%;"></a>
+			</div>
+		</div>
+	</div>
+	
+</script>
+
+<di>
+<script type="text/html" id="goods">
+	<div class="index_block goods">
+	<% if (title) { %>
+		<div class="title"><%= title %></div>
+	<% } %>
+		<div class="content" >
+		<% for (var i in item) { %>
+			<div class="goods-item" style=" border: 1px #f1f1f1 solid; margin-left: 3px;">
+				<a href="tmpl/product_detail.html?goods_id=<%= item[i].goods_id %>">
+					<div class="goods-item-pic"><img src="<%= item[i].goods_image %>" alt=""></div>
+					<div class="goods-item-name"><%= item[i].goods_name %></div>
+					<div class="goods-item-price">￥<%= item[i].goods_promotion_price %>&nbsp;&nbsp;<span style="text-decoration:line-through;color:gray; font-size:0.7em"; class="goods-item-marketprice" >￥<%=item[i].goods_marketprice%></span></div>
+				</a>
+			</div>
+		<% } %>
+		</div>
+	</div>
+</script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/swipe.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/tmpl/footer.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/swiper-3.3.1.jquery.min.js"></script>
+<script type="text/javascript"></script>
+<!--导航栏-->   
+<script>        
+  var mySwiper = new Swiper ('.swiper-container1', {
+        direction:"horizontal",/*横向滑动*/
+        //loop:true,  
+        //freeModeMomentum : false,
+		//grabCursor : true,/*手状*/
+		//hashnav:true,/*锚点*/
+		//hashnavWatchState:true,
+		//autoplay:9000,
+		//spaceBetween : 10,
+		slidesOffsetBefore : 50,/*预设与左边的偏移量*/
+        //scrollbar:'.swiper-scrollbar',
+		//scrollbarHide : false,
+        //scrollbarDraggable : true ,
+		//scrollbarSnapOnRelease : true ,
+		freeMode : true,
+        freeModeSticky : true,
+		slidesPerView : 5,
+		centeredSlides : false,
+
+  breakpoints: { 
+    //当宽度小于等于320
+    320: {
+      slidesPerView: 4,
+      spaceBetweenSlides: 0
+    },
+   //当宽度小于等于480
+    375: { 
+      slidesPerView: 4,
+      spaceBetweenSlides: 0
+    },
+    //当宽度小于等于640
+    414: {
+      slidesPerView: 5,
+      spaceBetweenSlides: 0
+    }
+  }
+
+  })        
+</script>
+<script>        
+  var mySwiper = new Swiper ('.swiper-container', {
+        direction:"horizontal",/*横向滑动*/  
+        loop:true,/*形成环路（即：可以从最后一张图跳转到第一张图*/ 
+		//effect : 'coverflow',
+		//slidesPerView: 3,
+		//centeredSlides: true,
+        pagination:".swiper-pagination",/*分页器*/  
+        prevButton:".swiper-button-prev",/*前进按钮*/  
+        nextButton:".swiper-button-next",/*后退按钮*/  
+        autoplay:2000,/*每隔3秒自动播放*/
+
+        slidesPerView : 3,
+        centeredSlides : false,
+  })        
+ </script>
+</body>
+</html>

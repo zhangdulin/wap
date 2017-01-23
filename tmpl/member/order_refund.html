@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>申请退款退货</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/member.css">
+    
+</head>
+<body>
+    <header id="header"></header>
+    <div class="address-opera">
+        <div class="address-ocnt">
+        <form>
+        <input type="hidden" name="goods_id" id="goods_id">
+        <input type="hidden" name="order_id" id="order_id">
+        <input type="hidden" name="user_id" id="user_id">
+
+            <div class="address-octlt">申请退款服务类型：</div>
+            <p>
+                <select id="refund_type" name="refund_type" class="select-30">
+                  <option value="1">仅退款</option>
+                  <option value="2">退货退款</option>   
+                </select>
+            </p>
+            
+                <div class="address-octlt">请填写退款<span class="type_2">退货</span>申请</div>
+                <p>退款<span class="type_2">退货</span>原因：<span class="opera-tips">(*必填)</span></p>
+                <div class="new-select-wp" id="prov">
+    		        <select class="select-30" id="reason_id" name="reason_id">
+                        
+    		        </select>	
+                </div>
+                <div class="type_2">
+                    <p>退货数量：<span class="opera-tips">(*必填)</span></p>
+                    <p>
+                        <input type="text" class="input-30" id="goods_num" name="goods_num" style="width:20%" value="1">
+                    </p>
+                </div>
+                <p>需要退款金额：<span class="opera-tips">(*必填)</span></p>
+                <p>
+                    <input type="text" class="input-30" id="refund_amount" name="refund_amount" style="width:20%"> 元 (最多退款 <span class="max_amount" style="color:red"></span> 元)
+                </p>
+                <p>退款说明：<span class="opera-tips">(*必填)</span></p>
+                <p>
+                    <textarea name="buyer_message" rows="3" style="width:100%"></textarea>
+                </p>
+        </form>
+
+        </div>
+        <div class="error-tips"></div>
+        <a class="add_address mt10" href="javascript:;">确认提交</a>
+        </form>
+    </div>
+    <div id="footer"></div>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/config.js"></script>
+    <script type="text/javascript" src="../../js/template.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/simple-plugin.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+    <!-- <script type="text/javascript" src="../../js/tmpl/footer.js"></script> -->
+    <script type="text/javascript" src="../../js/tmpl/order_refund.js"></script>
+</body>
+</html>

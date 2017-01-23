@@ -1,0 +1,37 @@
+.contain{padding: 50px 0 0 0;}
+.DishesList {
+  height: 100%;
+  box-sizing: border-box;
+  width: 25%;
+}
+.DishesList ul li{
+  position: relative;
+  display: block;
+  padding: 10px 0;
+  font-size: 0.8em;
+  background: #F8F8F8;
+  border-bottom:1px solid #ccc; 
+  text-align: center;
+}
+.DishesList ul li a{color: #000;}
+.DishesList ul li a:hover{text-decoration: none;}
+.current {background: #fff !important;color:#ac1a1b !important;}
+.DishesCon{ width: 73%;}
+.DishesCon-list{display: none;}
+.h3{font-size: 0.8em;border-bottom:1px solid #ccc; }
+.DishesCon-list table td{text-align: center;padding: 0 0 20px 0;}
+.DishesCon-list table td span{display: block; font-size: 0.8em;margin: 10px 0 0 0;}
+header{background:#ac1a1b;height: 50px;line-height: 50px;text-align: center;position:fixed;top: 0;}
+.h1{font-size:20px; color:#fff;}
+.center_ico {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: url(../images/top_search.png) center 3px no-repeat;
+    background-size: 30px 28px;
+    overflow: hidden;
+    position: absolute;
+    right: 10px;
+    top: 8px;
+}
+

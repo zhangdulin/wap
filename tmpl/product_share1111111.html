@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>分享拿礼品</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="../css/reset.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<link rel="stylesheet" type="text/css" href="../css/child.css">
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+<body style="min-width:320px; max-width:640px; margin:0 auto; background-color: #fff; ">
+<header id="header" class="main"></header> 
+<div class="share_top" id="share_top">
+      <img src="../images/special/fenxiang.jpg" id="share_top_img" />
+</div>
+ <div class="share_state">
+      <p>1位新朋友&nbsp&nbsp<span class="share_pingxing"></span>&nbsp&nbsp小享的神秘感谢礼</p>
+      <p>5位新朋友&nbsp&nbsp<span class="share_pingxing"></span>&nbsp&nbsp100元无门槛购物券</p>
+      <p>25位新朋友&nbsp&nbsp<span class="share_pingxing"></span>&nbsp&nbsp500元无门槛购物券</p>
+      <hr class="share_hr" />
+      <p class="share_p">第一次参加活动，分享成功就送5元购物卡</p>
+      <p class="share_p">小享邀请你每天来打卡</p>
+      <p class="share_p share_fix">每分享满20次就额外免费得40元购物卡</p>
+ </div>
+ <div class="share_banner">
+  <div class="share_text">
+    <ul class="clearfix">
+       <li>
+             <hr/>
+       </li>
+       <li class="share_textli">
+             <p>给小享介绍新朋友</p>
+             <p>马上分享到朋友圈</p>
+       </li>
+       <li>
+             <hr/>
+       </li>
+    </ul>   
+  </div>
+  <div class="share_goods" id="share_goods"> 
+        <!--<ul class="clearfix">
+              <li class="share_goodsli">
+              <img src="../images/special/show.png" alt="" id="share_goods_img"/></li>
+              <span class="share_hot"></span>
+              <li class="share_goodsli1 clearfix">
+                    <p class="share_gooddetail">
+                   这3款超级面膜总是被抢疯，趁还有货，快让TA领1个
+                    </p>
+                    <p class="share_atonce">
+                    <span class="share_atonceshare
+                    ">立即分享<span class="triangle_border_right"></span></span>
+                    </p>
+              </li>
+        </ul>
+        <ul class="clearfix">
+              <li class="share_goodsli">
+              <img src="../images/special/show.png" id="share_goods_img"/></li>
+              <span class="share_new"></span>
+              <li class="share_goodsli1 clearfix">
+                    <p class="share_gooddetail">
+                    这3款超级面膜总是被抢疯，趁还有货，快让TA领1个
+                    </p>
+                    <p class="share_atonce">
+                    <span class="share_atonceshare
+                    ">立即分享<span class="triangle_border_right"></span></span>
+                    </p>
+              </li>
+        </ul>-->
+ </div>
+</div>
+ <div class="share_text share_progress">
+    <ul class="clearfix">
+       <li>
+             <hr/>
+       </li>
+       <li class="share_textli">
+             <p>我的成就</p>
+       </li>
+       <li>
+             <hr/>
+       </li>
+    </ul>
+    <div class="share_cards">
+      <div>
+          <img src="../images/special/giftno.png">
+          <span onclick="wxfen()">我的神秘惊喜礼未获得</span>
+      </div>
+          <p>我已获得<span id="share_5">0</span>张5元购物卡</p>
+          <p>我已获得<span id="share_100">0</span>张100元购物卡</p>
+          <p>还差<span id="share_500">5</span>人，可在获得一张100元购物卡</p>
+          <hr class="share_hr" />
+    </div>   
+  </div>
+  <div class="share_details">
+        <h3>活动细则</h3>
+        <p>1、第一次参与分享成功即得一张5元购物卡，新用户领取礼品并下单成功，则记录有效。</p>
+        <p>2、每累计满5位朋友领取礼品并下单，送1张100元购物卡以此类推，你最高可获得5张100元购物卡。100元卡无消费门槛，限一次性使用，不找零。</p>
+        <p>3、礼物和购物卡会在朋友订单正常签收后24小时内到账</p>
+        <p>4、本活动参与者如发生恶意换取购物卡的违规行为，系统会关闭账号使用权限，并有权撤销其获得的相关赠品及购物卡。此活动最终解释权归极享全球所有。</p>
+  </div> 
+  <img class="show_fenxing" src="../images/special/miaomiao.png" />
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/template.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/swipe.js"></script>
+<script type="text/javascript" src="../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="../js/jweixin1_0_0.js"></script>
+<script type="text/javascript" src="../js/tmpl/product_share.js"></script>
+<script>
+//微信分享
+  var key = getcookie('key');
+  var goods_id = GetQueryString('goods_id');
+  var member_id = '';
+ 
+  var url = location.href.split('#')[0];
+  $.ajax({
+    type: 'post',
+    url: ApiUrl + "/index.php?act=jssdk&op=getSignPackage",
+    data: {key: key, url:url},
+    dataType: 'json',
+    jsonp:'callback',
+    success: function (result) {
+<<<<<<< .mine
+||||||| .r346
+      console.log(result);
+=======
+       $.ajax({
+        type: 'post',
+        url: ApiUrl + "/index.php?act=product_share&op=member",
+        data: {key: key, url:url},
+        dataType: 'json',
+        jsonp:'callback',
+        success: function (member) {
+        member_id = member.datas.member_id
+>>>>>>> .r468
+        var data =result.datas;
+        var memberInfo = data.member_info;
+          wx.config({
+            debug: false,
+            appId: memberInfo.appId,
+            timestamp: memberInfo.timestamp,
+            nonceStr: memberInfo.nonceStr,
+            signature: memberInfo.signature,
+            jsApiList: [
+           'onMenuShareTimeline', //分享给好友
+           'onMenuShareAppMessage', //分享到朋友圈 
+            ]
+        });
+      wx.ready(function(){
+          var goods_id = GetQueryString('goods_id');
+          wx.onMenuShareTimeline({
+          title: '极享全球年末福利免费派送，0元带回家', // 分享标题
+          desc: '与10万老会员，一起感受WORLD VIP的好品质', // 分享描述         
+          link: 'http://www.viptry.cn/wap/tmpl/product_freereceive.html?goods_id=1054&member_id='+member_id, // 分享链接
+          imgUrl: 'http://www.viptry.cn/wap/images/special/fenxiang.jpg', // 分享图标
+          success: function () { 
+              // 用户确认分享后执行的回调函数
+              //window.location.href='./product_freereceive.html?goods_id='+goods_id;
+              window.location.reload();
+          },
+          cancel: function () { 
+              // 用户取消分享后执行的回调函数
+              window.location.reload();
+          }
+        });
+    wx.onMenuShareAppMessage({
+        title: '极享全球年末福利免费派送，0元带回家', // 分享标题
+        desc: '与10万老会员，一起感受WORLD VIP的好品质', // 分享描述
+        link: 'http://www.viptry.cn/wap/tmpl/product_freereceive.html?goods_id=1054&&member_id='+member_id, // 分享链接
+        imgUrl: 'http://www.viptry.cn/wap/images/special/fenxiang.jpg', // 分享图标
+        type: 'link', // 分享类型,music、video或link，不填默认为link
+        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+        success: function () { 
+            // 用户确认分享后执行的回调函数
+             window.location.reload();
+        },
+        cancel: function () { 
+            // 用户取消分享后执行的回调函数
+            window.location.reload();
+        }
+    });
+
+});
+
+ // wx.error(function(res){
+
+ // });
+
+      }
+      })
+    }
+  });
+
+//诱导图片
+function wxfen(){
+    var key = getcookie('key');
+    var goods_id = GetQueryString('goods_id');
+    $.ajax({
+      type: 'post',
+      url: ApiUrl + "/index.php?act=product_share&op=login",
+      data: {key: key, url:url},
+      dataType: 'json',
+      jsonp:'callback',
+      success: function (result) {
+        if(result.login == 0){
+          window.location.href = WapSiteUrl+'/tmpl/member/login.html';
+        }
+      }
+    })
+    event.stopPropagation();
+    $('.show_fenxing').show();
+    //setTimeout("$('.show_fenxing').hide();",3000);
+    $(document).click(function(){
+      $(".show_fenxing").hide();
+    });
+    window.location.href = WapSiteUrl+'/tmpl/product_share.html';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WORLD VIP</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/product_list.css">
+    	<link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/swiper-3.3.1.min.css">
+</head>
+<body id="home-320" style="background:#f1f1f1">
+ <div id="header" style="margin-right: 40px;">
+  <div class="index_block index_nav swiper-container1">
+   <ul class="ulll swiper-wrapper">
+	<li class="ulli swiper-slide" ><a href="/wap/index.html" class="changebotttom shouyeactive">首页</a></li>	
+	<li class="swiper-slide"><a href="/wap/special.html?special_id=32" class="changebotttom">颜值控</a></li>
+	<li class="swiper-slide" ><a href="/wap/special.html?special_id=33" class="changebotttom">肌肤之亲</a></li>
+	<li class="swiper-slide" ><a href="/wap/special.html?special_id=34" class="changebotttom">休闲零食</a></li>
+	<li class="swiper-slide" ><a href="/wap/special.html?special_id=35" class="changebotttom">妈咪宝贝</a></li>	
+	<li class="swiper-slide"><a href="/wap/special.html?special_id=31" class="changebotttom">滋补保健</a></li>
+	</ul>
+     <!--<li class="swiper-scrollbar"></li>-->
+  </div>
+ </div>
+   <a href="/wap/search.html" class="clearfix">
+   <ul class="clearfix" style="text-align:center; float:right; width:40px;">
+   <hr class="souou_lis"/>
+   <li class="souou"></li>
+   </ul>
+   </a>
+ <div class="content">
+<!--
+		<div class="product-filter">
+			<a href="javascript:void(0);" class="clearfix current keyorder" key="4">
+				<span class="pf-newpd-icon f-icon fleft"></span>
+				<span class="pf-title">默认排序</span>
+			</a>
+			<a href="javascript:;" class="clearfix keyorder" key='3'>
+				<span class="pf-price-icon  desc f-icon fleft"></span>
+				<span class="pf-title">价格</span>
+			</a>
+			<a href="javascript:;" class="clearfix keyorder" key='1'>
+				<span class="pf-sales-icon f-icon fleft"></span>
+				<span class="pf-title">销量</span>
+			</a>
+			<div class="gdo"><span>更多筛选</span>
+				<ul>
+					<li><a href="/wap/tmpl/product_list.html?gc_id=824">非标红酒</a></li>                                                                                                                    
+					<li><a href="/wap/tmpl/product_list.html?gc_id=827">进口零食</a></li>
+					<li><a href="/wap/tmpl/product_list.html?gc_id=830">进口饮品</a></li>
+					<li><a href="/wap/tmpl/product_list.html?gc_id=832">达人美妆</a></li>	
+					<li><a href="/wap/tmpl/product_list.html?gc_id=824">家居日用</a></li>                                                                                                                    
+					<li><a href="/wap/tmpl/product_list.html?gc_id=827">海外母婴</a></li>
+					<li><a href="/wap/tmpl/product_list.html?gc_id=830">保健用品</a></li>
+					<li><a href="/wap/tmpl/product_list.html?gc_id=832">个人护理</a></li>	
+				</ul>
+				<ul>
+                	<li><a href="/wap/tmpl/product_list.html?gc_id=832">达人美妆</a></li>
+				    <li><a href="/wap/tmpl/product_list.html?gc_id=827">进口零食</a></li>
+                    <li><a href="/wap/tmpl/product_list.html?gc_id=824">保健用品</a></li>
+                    <li><a href="/wap/tmpl/product_list.html?gc_id=891">海外母婴</a></li>
+                </ul>
+			</div>
+		</div>
+-->
+		<div class="product-cnt">
+			<div id="product_list"></div>
+			<div class="pagination mt10" style=" margin-bottom:50px;margin-top:20px;">
+				<a href="javascript:void(0);" class="pre-page disabled">上一页</a>
+				<select name="page_list" style="padding: 4px 4px;  vertical-align: top;">
+
+				</select>
+				<a href="javascript:void(0);" class="next-page ">下一页</a>
+			</div>
+		</div>
+	</div>
+	<div class="footer" id="footer" style=" position:absolute; bottom:0px; width:100%"></div>
+	<input type="hidden" name="key" value="4">
+	<input type="hidden" name="order" value="1">
+	<input type="hidden" name="page" value="10">
+	<input type="hidden" name="curpage" value="1">
+	<input type="hidden" name="hasmore">
+	<input type="hidden" name="gc_id" value="">
+	
+	
+	<!----------------------------------------------------------------------------------------搜 -------------------------------------------------->
+	<input type="hidden" name="keyword"> 
+
+</body>
+<script type="text/html" id="home_body">
+	<% if(goods_list.length >0){%>
+		<ul class="product-list">
+			<%for(i=0;i<goods_list.length;i++){%>
+			<li class="pdlist-item" goods_id="<%=goods_list[i].goods_id;%>">
+				<a href="product_detail.html?goods_id=<%=goods_list[i].goods_id;%>" class="pdlist-item-wrap clearfix">
+					<span class="pdlist-iw-imgwp">
+						<img src="<%=goods_list[i].goods_image_url;%>"/>
+					</span>
+					<div class="pdlist-iw-cnt">
+						<p class="pdlist-iwc-pdname">
+							<%=goods_list[i].goods_name;%>
+						</p>
+						<p class="pdlist-iwc-pdprice">
+							￥<%=goods_list[i].goods_price;%>
+<span style="text-decoration:line-through;color:gray; font-size:0.9em;=">￥<%=goods_list[i].goods_marketprice;%></span>
+						<% if (goods_list[i].is_virtual == '1') { %>
+							<span class="product-status bg-virtual">虚拟兑换</span>
+						<% } else { %>
+							<% if (goods_list[i].is_presell == '1') { %>
+							<span class="product-status bg-presell">预售</span>
+							<% } %>
+							<% if (goods_list[i].is_fcode == '1') { %>
+							<span class="product-status bg-fcode">F码优先</span>
+							<% } %>
+						<% } %>
+
+							<%
+								if(goods_list[i].group_flag){
+							%>
+								<span class="product-status bg-yf8">抢购</span>
+							<%
+								}
+								if(goods_list[i].xianshi_flag){
+							%>
+								<span class="product-status bg-blue">限时折扣</span>
+							<%
+								}
+							%>
+						</p>
+						
+					</div>
+				</a>
+			</li>
+			<%}%>
+		</ul>
+	<%
+	   }else {
+	%>
+		<div class="no-record">
+            暂无记录
+        </div>
+	<%}%>
+</script>
+
+			
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/config.js"></script> 
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/touch.js"></script>
+<script type="text/javascript" src="../js/template.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../js/tmpl/product_list.js"></script>
+<script type="text/javascript" src="../js/tmpl/footer.js"></script>
+<script type="text/javascript" src="../js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="../js/swiper-3.3.1.jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+ <script type="text/javascript">
+ $(function(){
+ var art_title = $("title").html();
+ var art_url = document.URL;
+ var history;
+ var json="[";
+ //json1是第一次注入cookie以后的第一个json，"此时还不是数组" 以点带面的处理
+ var json1;
+ var canAdd= true;
+ //var json1=eval("({sitename:'dreamdu',sitedate:new Date(1980, 12, 17, 12, 0, 0)})");
+ if(!$.cookie("history")){
+ //第一次的时候需要初始化
+ history = $.cookie("history","{title:\""+art_title+"\""+",url:\""+art_url+"\"}");
+ }else {
+ //已经存在
+ history = $.cookie("history");
+ json1 = eval("("+history+")");
+ $(json1).each(function(){
+  if(this.title==art_title){
+  canAdd=false;
+  return false;
+  }
+ })
+ if(canAdd){
+  $(json1).each(function(){
+  json = json + "{\"title\":\""+this.title+"\",\"url\":\""+this.url+"\"},";
+  })
+  json = json + "{\"title\":\""+art_title+"\",\"url\":\""+art_url+"\"}]"; 
+  $.cookie("history",json,{expires:1});
+ }
+ }
+ })
+ </script>
+
+
+    
+<!--导航栏-->   
+<script>        
+  var mySwiper = new Swiper ('.swiper-container1', {
+        direction:"horizontal",/*横向滑动*/  
+        //freeModeMomentum : false,
+		//grabCursor : true,/*手状*/
+		//hashnav:true,/*锚点*/
+		//hashnavWatchState:true,
+	
+		//spaceBetween : 10,
+		//slidesOffsetBefore : 50,/*预设与左边的偏移量*/
+        //scrollbar:'.swiper-scrollbar',
+		//scrollbarHide : false,
+       // scrollbarDraggable : true ,
+		//scrollbarSnapOnRelease : true ,
+        
+		slidesPerView : 5,
+		centeredSlides : false,
+  
+ 
+  breakpoints: { 
+    //当宽度小于等于320
+    320: {
+      slidesPerView: 4,
+      spaceBetweenSlides: 0
+    },
+   //当宽度小于等于480
+    375: { 
+      slidesPerView: 4,
+      spaceBetweenSlides: 0
+    },
+    //当宽度小于等于640
+    414: {
+      slidesPerView: 5,
+      spaceBetweenSlides: 0
+    }
+  }
+
+  
+
+  })        
+</script>
+
+</html>

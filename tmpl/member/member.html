@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/member.css">
+</head>
+<body class="member-body" style="min-width:320px; max-width:640px; margin:0 auto; background-color:#efefef;">
+    <div class="main">
+        <div class="header_content">
+            <div class="userinfo">
+                <a href="javascript:void(0);" ><div class="avatar"><img src="../../images/avatar_icon.png" style="border-radius:50%;overflow:hidden;" id="username_imge"></a>
+                </div>
+<form action="upload_file.php" method="post" enctype="multipart/form-data">   
+<input type="file"  onchange="filefujianChange(this);"  class="filenone" id="uploadAvartar" name="avatar" >
+<!--<input type="submit" name="submit" value="提交">-->
+</form>                    
+    </div>
+          <div class="username">
+               <span id="username" style=" height:16px;font-size:16px; overflow:hidden; text-align:-webkit-center; text-align:center;text-overflow: ellipsis;white-space: nowrap;"></span>
+               <!--<a href="#" ><img src="../../images/member/member/sexman.png" class="username_img" id="username_imge"></a>-->
+               <!--<span id="personsex" class="username_img"></span>-->
+         </div>
+         <div class="account_info">
+          <ul style="text-align:center;background-color: #000;">
+                    <!--<li>优惠券<br/><a href="voucher_list.html?voucher_state=1">0</a></li>
+                    <li class="xileft">余额<br/>¥<span id="predepoit"></span></li>
+                    <li class="xiright">积分<br/><span id="point"></span></li>-->
+                    <li  style="float:left;">余额<br/>¥<span id="predepoit"></span></li>
+                    <li  style="float:right; border-left:1px solid #efefef; width:50.5%;"><p >积分<br/><span id="point"></span></p></li>
+                </ul>
+            </div>
+        </div>
+           <li style="position:absolute;top:25px;left:88%; ">
+              <a href="msg_list.html">
+              <img src="../../images/member/member/messages.png" style="width:22px;height:18px;" class="">
+              </a>
+            </li>
+        <div class="top_content">
+            <div class="title">
+                <div class="more">
+                <a href="order_list.html"> 全部订单 
+                <img src="../../images/msg_l.png" /> 
+                </a>
+                </div>
+                <a href="order_list.html"><div class="my_order"><span class="text"> 我的订单</span></div></a>
+            </div>
+            <ul class="clearfix" style="user_kd" >
+                <li>
+                <a href="order_list.html?state=10"><span class="pay_icon"></span><img src="../../images/member/member/pay.png"></a>
+                 <p>待支付</p>
+                </li>
+                <li>
+                <a href="order_list.html?state=20"><img src="../../images/member/member/sent.png"></a>
+                 <p>待发货</p>
+                </li>
+                <li>
+                <a href="order_list.html?state=30"><img src="../../images/member/member/receive.png"></a>
+                <p >待收货</p>
+                </li>
+                <li>
+                <a href="order_list.html?state=40"><img src="../../images/member/member/appraise.png"></a>
+                 <p >待评价</p>
+                </li>
+                <li>
+                <a href="order_list_refund.html"><img src="../../images/member/member/refundsale.png"></a>
+                <p>退款/售后</p>
+                </li>
+            </ul>
+        </div>
+    <div class="m-center">
+        <ul class="mc-cnt clearfix">
+            <!-- <li>
+                <a href="voucher_list.html">
+                    <i class="im-quan"></i>
+                    我的代金券
+                    <span class="grayrightarrow"></span>
+                </a>
+            </li>-->
+            <!--<li>
+                <a href="order_list.html">
+                     <!--<i class="im-collect"></i>
+                  <span style="margin-left:5px;">我的收藏</span>
+                     <span class="grayrightarrow"></span>-->
+              <!--<img src="../../images/member/member/myorder.png" class="im-collect">
+                </a>
+                 <p >我的订单</p>
+            </li>-->
+            <!--<li>
+                 <a href="msg_list.html">
+                 <img src="../../images/member/member/message.png" class="im-collect">
+                 </a>
+                 <p>我的消息</p>
+            </li>
+           <a href="voucher_list.html?voucher_state=1">
+            <li style="border-top: 8px solid #efefef;">
+            <p>优惠券</p>
+            <img src="../../images/msg_l.png" />
+            </li>
+           </a>-->
+		    <a href="member_center.html">
+            <li style="border-top: 8px solid #efefef;">
+             <p>设置</p>
+             <img src="../../images/msg_l.png" />
+            </li>
+            </a>
+            <a href="favorites.html">
+            <li>
+             <p>我的收藏</p>
+             <img src="../../images/msg_l.png" />
+            </li>
+            </a>
+            <a href="voucher_list.html">
+            <li>
+             <p>我的优惠券</p>
+             <img src="../../images/msg_l.png" />
+            </li>
+            </a>
+            <!--<a href="share_gift.html">
+             <li>
+             <p>礼品兑换</p>
+             <img src="../../images/msg_l.png" />
+            </li>
+            </a>-->
+            <a href="distribution.html" id="distribution">
+             <li  style="border-top: 8px solid #efefef;">
+              <p style="">个人分销中心</p>
+              <img src="../../images/msg_l.png" />
+               </li>
+             </a> 
+          </ul> 
+       <ul class=" mc-cnt  clearfix"></ul>
+    </div>
+    </div>
+    <div class="footer" id="footer"></div>
+    <script type="text/javascript" src="../../js/config.js"></script>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/template.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/member.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+    <script type="text/javascript" src="../../js/simple-plugin.js"></script>
+	<script type="text/javascript" src="../../js/jquery.dialogBox.js"></script>
+</body>
+</html>

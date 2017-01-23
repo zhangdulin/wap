@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>申请提现</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/member-distribution.css">
+</head>
+<body style="background-color:#ededed;">
+  <form  id="form1" method="post">
+    <ul class="withdraw_add_ul">
+        <input type="hidden" value="" class="username" name="username" id="username"/>
+        <li>
+            真实姓名&nbsp&nbsp&nbsp<input type="text" name="myname" value="" class="myname" />
+        </li>
+        <li>
+            身份证&nbsp&nbsp&nbsp<input type="text" name="identity" value="" class="identity"/>
+        </li>
+        <li>
+            卡号&nbsp&nbsp&nbsp<input type="text" name="card" value="" class="card" onkeypress="return event.keyCode>=48&&event.keyCode<=57"/>
+        </li>
+        <li>
+            开户行地址&nbsp&nbsp&nbsp<input type="text" name="card_address" value="" class="card_address" />
+        </li>
+        <li>
+            开户行&nbsp&nbsp&nbsp<input type="text" name="card_type" value="" readonly="true" class="card_type">
+        </li>
+        <li>
+            金额&nbsp&nbsp&nbsp<input type="text" name="wd_amount" class="wd_amount"  placeholder="&nbsp&nbsp&nbsp请输入提现金额" value="" onkeypress="return event.keyCode>=48&&event.keyCode<=57"/>元
+        </li>
+        <li>
+            验证码&nbsp&nbsp&nbsp<input type="text" class="vcode" placeholder="请输入验证码 " value=""  name="vcode" id="vcode"/>
+                  <a href="javascript:void(0);" id="codebtn">发送验证码</a>
+        </li>
+        <input type="hidden" value="" class="hidden" name="hidden" id="hidden"/>
+        <span class="import"></span>
+        <div class="error-tips mt10" ></div>
+    </ul>
+       <!-- <input type="submit" name="submit" value="申请提现" id="btn_subli"/> -->
+       <a href="javascript:void(0);" class="l-btn-login1" id="btn_subli"><span style=" font-size:20px;"><span style=" font-family:'Times New Roman', Times, serif"></span>申请提现</span></a>
+    </form>
+    <div class="widthtraw_shuoming">
+        <p>1、请确认提现账户的正确性</p>
+        <p>2、最低的提现金额<span id="money"></span>元，以平台实际运营为准</p>
+        <p style="line-height: 20px;">3、提现申请提交后，我们将在24小时内审核，三个工作日内发放至相应的账户内</p>
+        <p>4、审核如发现异常。时间顺延，请耐心等候</p>
+    </div> 
+<script type="text/javascript" src="../../js/config.js"></script>
+<script type="text/javascript" src="../../js/zepto.min.js"></script>
+<script type="text/javascript" src="../../js/template.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+<script type="text/javascript" src="../../js/tmpl/withdraw.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的收藏</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/member.css">
+</head>
+<body style=" background-color: #ededed;">
+    <header id="header"></header>
+    <div class="favorites-list" id="favorites_list"></div>
+    <div class="footer" id="footer"></div>
+    <script type="text/html" id="sfavorites_list">
+     <%if(favorites_list.length>0){%>
+		 <ul>
+			<%for(var i=0;i<favorites_list.length;i++){%>
+            <li class="clearfix" style="background-color: #fff;">
+				<a href="<%=WapSiteUrl%>/tmpl/product_detail.html?goods_id=						       			<%=favorites_list[i].fav_id %>" class="mf-item floatl" style=" display:block;width:25%;">
+					<div class="mf-pic">
+					   <img src="<%=favorites_list[i].goods_image_url %>"/>
+					</div>
+				</a> 		 
+				<div class="mf-infor floatl">
+					<p class="mf-pd-name"><%=favorites_list[i].goods_name %></p>
+					
+					<!--<p class="mf-pd-comment">&nbsp;</p>-->
+					<div class="mf-pd-fix">
+					<span class="mf-pd-price">￥<%=favorites_list[i].goods_price %></span>
+					<div style="display: inline-block;float: right;padding-right: 40px;">
+					<a href="/wap/tmpl/cart_list.html" class="i-shopcar" >
+					<span goods_id="<%=favorites_list[i].fav_id %>"><img src="../../images/member/collect/thecar.png"/></span></a>
+					<span class="i-del" goods_id="<%=favorites_list[i].fav_id %>"></span>
+					</div>
+				 </div>
+				</div>
+			
+				
+                
+            </li>
+			<%}%>
+            <!--<div class="clear_all">
+                <div class="clear_s" id="fclear_all">一键清空</div>
+			-->
+            </div>
+        </ul>
+        <%}else{%>
+        <div class="no-record">
+            <img src="../../images/member/collect/isnone.png" style="width:230px;height: 150px;margin-top: 50px;">   		
+            <p>您还没有收藏的宝贝</p>
+        </div>
+        <div class="clear_all">
+            <div class="clear_s" id="goto">快去找找您喜欢的宝贝吧～</div>
+        </div>
+       <%}%>
+	</script>
+    <script type="text/javascript" src="../../js/config.js"></script>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/template.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/favorites.js"></script>
+    <!-- <script type="text/javascript" src="../../js/tmpl/footer.js"></script> -->
+    <script type="text/javascript" src="../../js/simple-plugin.js"></script>
+</body>
+</html>

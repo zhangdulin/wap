@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的朋友</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/member-distribution.css">
+</head>
+<body style="background:#f2f2f2;">
+    <header id="header"></header>
+    <!--<div class="address-list" id="agents_data"></div>-->
+    <div class="footer" id="footer"></div>
+	  <ul class="agents_ul clearfix">
+       <li>
+       <img src="../../images/avatar_icon.png" class="agents_ul_img" id="username_imge"/>
+       </li>
+       <li>
+       <span class="member_name" style=" border:none;">用户名：<%=list[i].member_info.member_name %>
+       </span>
+           <!-- <span class="order">订单:<%=list[i].order_count %>笔</span>-->
+           <!--<span class="points">返积分：<%=list[i].order_points %>分</span>-->
+       </li>
+       <li >
+        <img src="../../images/member/forecast.png"  style="height:20px; padding-left: 60%;"/>
+       </li>
+       <li> 
+         <span style="color:#ff0000;">100元</span>
+       </li>
+	  </ul>
+
+    <script type="text/javascript" src="../../js/config.js"></script>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/template.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/agents.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+@charset "utf-8";
+/*
+*首页样式
+*/
+
+.header-wrap{width: 100%;height: 50px;line-height:48px;position: absolute;z-index:999;max-width: 640px; min-width: 320px; 	overflow: hidden;}
+.i-main-opera{position: absolute;top: 8px;right: 7px;width: 37px;height: 37px;}
+.i-main-opera span{width: 36px;height: 36px;background-position: 0px 0px;}
+.main-opera-pannel{border-bottom:1px solid #d0cece;background-color: #fff;display:none;}
+.main-op-table{display: table;width: 100%; background: #ffffff}
+.main-op-table .quarter{width: 25%;padding: 1px 0px;display: table-cell;text-align: center;}
+.main-op-warp .quarter span{width: 30px;height: 28px;}
+.main-op-warp .quarter .i-home{background-position: 0px -10px;}
+.main-op-warp .quarter .i-categroy{background-position:-124px -42px;}
+.main-op-warp .quarter .i-cart{background-position:0px -99px;}
+.main-op-warp .quarter .i-mine{background-position:0px -140px;}
+.main-op-warp .quarter.current .i-home{background-position: 0px 0px;}
+.main-op-warp .quarter.current .i-categroy{background-position:0px -40px;}
+.main-op-warp .quarter.current .i-cart{background-position:0px -88px;}
+.main-op-warp .quarter.current .i-mine{background-position:0px -125px;}
+.main-op-warp .quarter p{color: #666666;font-size: 10px;}
+.main-op-warp .quarter.current p{color: #D9434E;}
+.htsearch-wrap{padding:0px 50px 0px 10px;}
+
+
+.htsearch-wrap .search-btn{top: 89px;left: 3px;opacity: 0.8;}
+.htsearch-wrap .message{top: 0px;right: 0px; position: absolute; color:white;background:url(../images/message.png) no-repeat 8px 12px;width: 50px;text-align: center;display: inline-block;opacity: 0.8;}
+.htsearch-wrap .cat{top: 9px;left: 12px; position: absolute;background:url(../images/cat.png) no-repeat;width: 32px;height: 32px;background-color: #ac1a1b;}
+.htsearch-input{height: 30px;border:0px;width: 75%;text-indent: 8px;vertical-align: middle;font-weight: normal;font-size: 14px;-webkit-appearance:none; margin-left: 18%;border-radius:4px;opacity: 0.6;}
+
+body{
+	-moz-user-select: none; /*火狐*/
+	-webkit-user-select: none; /*webkit浏览器*/
+	-ms-user-select: none; /*IE10*/
+	-khtml-user-select: none; /*早期浏览器*/
+	user-select: none;
+
+
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-focus-ring-color: rgba(0, 0, 0, 0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	padding: 0;
+	margin: 0;
+	background-color: #F2F2F2;
+
+	color: #000;
+	font-family: 'microsoft yahei',Verdana,Arial,Helvetica,sans-serif;
+	font-size: 13px;
+	line-height: 1.25em;
+}
+
+.main { max-width: 640px; min-width: 320px; margin: 0 auto;	overflow: hidden;position:static;z-index:1; }
+
+.main1 { max-width: 640px; min-width: 320px; margin: 0 auto;	overflow: hidden;position:static;}
+
+.index_block { width: 100%; clear: both;  border-top: solid 1px #D1D1D1; border-bottom: solid 1px #D1D1D1; overflow: hidden; }
+.index_block .title { font-size: 0.9em; color: #777; background-color: #FFF; padding: .3em; }
+.index_block1 { width: 100%; clear: both;   overflow: hidden;}
+.index_block1 .title { font-size: 0.9em; color: #777; background-color: #FFF; padding: .3em; }
+/* 块模型布局B、D */
+.home2 .content { font-size: 0; background-color: #FFF; *word-spacing: -1px/*IE6、7*/; white-space: nowrap; border-top: solid 1px #D1D1D1; overflow: hidden;}
+.home2_1,
+.home2_2 { font-size: 12px; vertical-align: top; letter-spacing: normal; display: inline-block; *display: inline/*IE7*/; width: 50%; *zoom:1/*IE7*/;}
+.home2 .border-left { border-left: 1px solid #D1D1D1;}
+.home2 .border-right { border-right: 1px solid #D1D1D1;}
+.home2 .border-bottom{ border-bottom: 1px solid #D1D1D1;}
+
+.home3 .content { font-size: 0; background-color: #FFF; *word-spacing: -1px/*IE6、7*/;}
+.home3 .item { letter-spacing: normal; vertical-align: top; display: inline-block; *display: inline/*IE7*/; width: 48%; margin: 1%; *zoom:1/*IE7*/;}
+
+.item img {
+	width: 100%;
+	display: block;
+}
+
+.swipe {
+	overflow: hidden;
+	visibility: hidden;
+	position: relative;
+}
+
+.swipe-wrap {
+	overflow: hidden;
+	position: relative;
+}
+
+.swipe-wrap > div {
+	float: left;
+	width: 100%;
+	position: relative;
+}
+
+.swipe-wrap img { width: 100%; max-height: 240px; min-height: 120px;}
+
+.goods { border: none;}
+.goods .title { background-color: transparent; padding: 3px;padding-left:14px;}
+.goods .content { font-size: 0; *word-spacing: -1px/*IE6、7*/;}
+
+
+.goods-item { font-size: 16px; background-color: #FFF; letter-spacing: normal; vertical-align: top; display: inline-block; *display: inline/*IE7*/; width: 49%; margin: 0.5% 0.5%; *zoom:1/*IE7*/;}
+
+
+
+
+.goods-item a { display: block;}
+.goods-item-pic { display: block; max-width: 240px; min-width: 120px; max-height: 240px; min-height: 120px; margin: 8px auto 0 auto;}
+.goods-item-pic img { width: 100%;}
+.goods-item-name { font-size: 0.7em; line-height: 18px; color: #000; height: 18px;  margin-bottom: 8px; overflow:hidden; margin-left:12px;}
+.goods-item-price { font-size: 0.8em; color: #F30; height: 20px; margin: 0 8px; border-top: dotted 1px #D1D1D1;}
+
+.with-home-logo {
+	background-image: url(../images/home_logo.png);
+	background-repeat: no-repeat;
+	background-position: 10px 5px;
+	padding-left: 95px;
+}
+
+.index_nav{
+	background-color: #ffffff;
+}
+
+.index_nav ul{
+	width: 100%;
+	overflow: hidden;
+	padding:0px 0px 0px 0px;
+}
+
+.index_nav li{
+	float: left;
+	width: 20%;
+	text-align: center;
+	line-height: 20px;
+}
+
+.index_nav li img{
+	width:80%;
+}
+
+.index_limit_buy{
+	background-color: #FFFFFF;
+	width:100%;
+	overflow: hidden;
+}
+
+.index_limit_buy .banner{
+	width: 100%;
+	height: auto;
+}
+
+.index_limit_buy .limit_buy{
+	float: left;
+	width: 100%;
+}
+
+.limit_buy .time{
+	font-weight: 600;
+	font-size: 18px;
+	width: 100%;
+}
+
+.time img{
+	width: 10%;
+	float: left;
+}
+
+.time span{
+	color:#FB0A0A;
+	text-decoration: underline;
+}
+
+.time .show_time{
+	float: left;
+	max-height: 40px;
+	margin-left: 5%;
+	margin-top:5px;
+}
+
+.limit_buy .items ul{
+	width: 100%;
+	overflow: hidden;
+}
+
+.limit_buy .items li{
+	float: left;
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+
+.limit_buy .items img{
+	width:100%;
+	height: auto;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #4d4d4d;  
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #4d4d4d;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: #4d4d4d;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #4d4d4d;
+}

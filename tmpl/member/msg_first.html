@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通知消息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/member.css">
+</head>
+<body>
+    <header id="">
+        <div class="header-member">
+            <a href="javascript:history.back();" class="member-back"><span>返回</span></a>
+            <h2>通知</h2>
+        </div>
+    </header>
+    <div class="msg_list" id="address_list"></div>
+    <div class="footer clearfix" id="footer"></div>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/html" id="saddress_list">
+     <%if(msg_list.length>0){%>
+		
+		<%for(var i=0;i<msg_list.length;i++){%>
+           
+               
+                <div  class="no-record2 clearfix" style="margin:10px;text-align: left;">
+                    <div class="msg_all">
+                        <a href="msg_first.html?message_id=<%=msg_list[i].message_id %>" class="msg_body" id="msg_body">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=msg_list[i].message_body %></a>
+                    </div>
+                    <div class="msg_time fright"><%=msg_list[i].message_time%></div>
+                </div>
+		<%}%>
+       
+        <%}else{%>
+            <div class="no-record">
+                暂无记录
+            </div>
+        <%}%>
+	
+	</script>    
+    <script type="text/javascript" src="../../js/config.js"></script>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/template.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/msg_first.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+</body>
+</html>

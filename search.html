@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset='utf8'/>
+<title>极享全球</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">  
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body style=" background-color:#f1f4f4; z-index:1;max-width: 640px;min-width: 320px; margin:0 auto; overflow:hidden;">
+ <header class="main1 clearfix" style="margin-top:10px;">
+         <div class="htsearch-wrap">
+	       <form action="tmpl/product_list.html" method='get'>
+			<input type="text" class="htsearch-input clr-999" value="" id="keyword" placeholder="搜索商品"  name="keyword" style="border:solid #e6e6e6 1px; color:#000;" />
+			<div class="souou" style="margin-left: 8px;margin-top: -23px;float:none;"></div>
+	       </form>
+	    </div>
+<a href="index.html" style="float:right;margin-top: -38px;padding-right: 14px; font-size:14px;color:#000;">取消</a>
+</header>
+
+     <div style="max-width: 640px;min-width: 320px; margin-top:20px; padding-left:10px;">
+      <div style="font-size:16px;color:#000; font-weight:600;">| 热门搜索</div>
+      <ul class="search_ul clearfix" style=" overflow:hidden;">
+      <li ><a href="/wap/tmpl/product_list.html?keyword=东方宝石"><span class="searchFind">东方宝石</span></a></li>
+      <li ><a href="/wap/tmpl/product_list.html?keyword=科丽蔓"><span class="searchFind">科丽蔓</span></a></li>
+      <li ><a href="/wap/tmpl/product_list.html?keyword=one+wine"><span class="searchFind">one wine</span></a></li>
+      <li ><a href="/wap/tmpl/product_list.html?keyword=青汁"><span class="searchFind">青汁</span></a></li>
+      <li ><a href="/wap/tmpl/product_list.html?keyword=卡乐比"><span class="searchFind">卡乐比</span></a></li>
+      <li ><a href="/wap/tmpl/product_list.html?keyword=swisse"><span class="searchFind">swisse</span></a></li>
+      </ul>
+     </div>
+    <div style="max-width: 640px;min-width: 320px; margin-top:50px; padding-left:10px;">
+      <div style="font-size:16px;color:#000; font-weight:600;">| 历史记录</div>
+      <ul class="search_his clearfix" style="overflow:hidden;">
+ 
+      </ul>
+     </div>
+
+
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<!--<script type="text/javascript" src="js/template.js"></script>-->
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" >
+ setHistory($("#keyword").val()); 
+ getHistory();
+ var historyCount = 10;
+ function setHistory(keyWord) {
+        var keyWords = $.cookie('keyWord');
+        if (keyWords) {
+            if(keyWord) {
+                var keys = keyWords.split(",");
+                for (var i = keys.length - 1; i >= 0; i--) {
+                    if (keys[i] == keyWord) {
+                        keys.splice(i, 1);
+                    }
+                }
+                keys.push(keyWord);
+
+                if (keys.length >= historyCount) {
+                    //删除最开始的多余记录
+                    var count = keys.length - historyCount + 1; //需要删除的个数
+                    keys.splice(0, count); //开始位置,删除个数
+                }
+                $.cookie('keyWord', keys.join(','), {expires: 365, path: '/'});
+            }
+        } else {
+            $.cookie('keyWord', keyWord, {expires: 365, path: '/'});
+        }
+}
+
+function  delHistory(){
+    $.cookie("keyWord",null,{path:"/",expires: -1});
+}
+
+function  getHistory(){
+    var keyWords = $.cookie('keyWord');
+    if(keyWords) {
+        var keys=  keyWords.split(",");
+        var length = keys.length;
+        if (length > 0) {
+            $("#historyRecord").empty();
+            var htmlString = "<dd>";
+            for (var i = length - 1; i >= 0; i--) {
+                htmlString += "<li ><a>" + keys[i] + "</a></li>";
+            }
+            htmlString += "</dd>"+"<p>清除历史记录</p>";
+            $(".search_his").html(htmlString)
+        }
+    }
+}
+	 
+	     $("p").click(function(){
+			 $('.search_his').css('display','none');
+			$.cookie("keyWord",null,{path:"/",expires: -1});
+			 });
+ </script>
+ 
+ 
+ 
+ 
+ 
+ <!--<script type="text/javascript">
+ $(function(){
+ var art_title = $("#keyword").val();
+ var art_url = document.URL;
+ var history;
+ var json="[";
+ //json1是第一次注入cookie以后的第一个json，"此时还不是数组" 以点带面的处理
+ var json1;
+ var canAdd= true;
+ //var json1=eval("({sitename:'dreamdu',sitedate:new Date(1980, 12, 17, 12, 0, 0)})");
+ if(!$.cookie("history")){
+ //第一次的时候需要初始化
+ history = $.cookie("history","{title:\""+art_title+"\""+",url:\""+art_url+"\"}");
+ }else {
+ //已经存在
+ history = $.cookie("history");
+ json1 = eval("("+history+")");
+ $(json1).each(function(){
+  if(this.title==art_title){
+  canAdd=false;
+  return false;
+  }
+ })
+ if(canAdd){
+  $(json1).each(function(){
+  json = json + "{\"title\":\""+this.title+"\",\"url\":\""+this.url+"\"},";
+  })
+  json = json + "{\"title\":\""+art_title+"\",\"url\":\""+art_url+"\"}]"; 
+  $.cookie("history",json,{expires:1});
+ }
+ }
+ })
+ </script>
+ 
+ 
+ <script type="text/javascript">
+ $(function(){ 
+ if($.cookie("history")){
+ var json = eval("("+$.cookie("history")+")"); 
+ var list =""; 
+ $(json).each(function(){
+  list = list + "<li><a href='"+this.url+"' target='_blank'>"+this.title+"</a></li>";
+ 
+ })
+ $(".search_his").html(list);;
+ } 
+
+ }); 
+</script>-->
+ 
+
+<!--<script>
+$.cookie('the_cookie', $("#keyword").val());
+$.cookie('the_cookie', $("#keyword").val(), { expires: 7 });
+$.cookie('the_cookie', $("#keyword").val(), { expires: 7, path: '/' });
+$.cookie('the_cookie'); // cookie存在 => 'the_value'
+$.cookie('not_existing'); // cookie不存在 => null
+$('.search_his').html($.cookie('the_cookie'));
+</script>-->
+
+</body>
+</html>

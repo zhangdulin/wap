@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/car_list.css">
+    <script type="text/javascript" src="../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../js/config.js"></script>
+    <script type="text/javascript" src="../js/tmpl/cart-list.js"></script>
+</head>
+
+<body style="background-color:#f1f4f4;">
+    <header id="header"></header>
+    <div class="share_gift">
+        <form action="" class="clearfix" id="formgift">
+          <input type="text" placeholder="&nbsp&nbsp礼品兑换处，请输入兑换码" class="sharefree_gift" name="mygift" />
+          <span class="sharefree_gift1" id="btn_sublit" value=''>兑换</span> 
+        </form>
+      </div>
+        <div class="cart-list-wp">
+            <div id="cart-list-wp">
+            <script type="text/html" id="cart-list">
+            <% if(cart_list.length >0){%>
+                <ul class="cart-list">
+                    <% for (var i = 0;i<cart_list.length;i++){%>
+                        <li class="cart-list-item">
+                            <!--<div class="cart-shop-name">
+                                店铺名称：<%=cart_list[i].store_name%>
+                            </div>-->
+                            <div class="cart-litem-wp clearfix">
+							<!--<div class="checkboxout floatl">
+							<input type="checkbox" class="checkbox" id="checkboxstyle"  name="xuankuang" value="" >
+							<label for="checkboxstyle"></label>
+							</div>-->
+                                <a class="cart-litemw-imgwp" href="<%=WapSiteUrl%>/tmpl/product_detail.html?goods_id=<%=cart_list[i].goods_id%>">
+                                   <span><img src="<%=cart_list[i].goods_image_url%>"/></span>
+                                </a>
+                                <div class="cart-litemw-cnt" cart_id="<%=cart_list[i].cart_id%>">
+                                <a class="cart-litemwc-pdname" href="<%=WapSiteUrl%>/tmpl/product_detail.html?goods_id=<%=cart_list[i].goods_id%>">
+                                <span style="color: #1f1f20;"><%=cart_list[i].goods_name%></span>
+                                 </a>
+                                 <p class="mt5 clearfix" style=" color: #1f1f20; margin-top:10px;">
+                                  <span>￥<%=cart_list[i].goods_price%></span>
+										
+                                  <span class="goods-total-price" style=" display:none;"><%=cart_list[i].goods_sum%></span>
+                                    </p>
+									<p class="cart-litemwc-pdcount clearfix mt5" style=" margin-top:40px;">
+                                        <% if(cart_list[i].goods_id != goods_id){ %>
+                                            <span class="minus-wp fleft">
+                                                <span class="i-minus"></span>
+                                            </span>
+                                            <input type="text" class="buy-num buynum fleft" value="<%=cart_list[i].goods_num%>"/> 
+                                                <span class="add-wp fleft">
+                                                    <span class="i-add"></span>
+                                                </span>
+                                            <%}else{%>
+                                            <span class="minus-wp fleft minus-wpfix">
+                                                <span class="i-minus"></span>
+                                            </span>
+                                            <input type="text" class="buy-num buynum fleft minus-wpfix" value="<%=cart_list[i].goods_num%>"/> 
+                                             <span class="add-wp fleft minus-wpfix">
+                                               <span class="i-add"></span>
+                                             </span>
+                                             <span class="gift1054">新人免费礼</span>
+                                            <%}%>
+                                        </p>
+                                    </div>
+                                    <!--<p class="cart-litemwc-pdcount clearfix mt5">
+                                        <span class="minus-wp fleft">
+                                            <span class="i-minus"></span>
+                                        </span>
+                                        <input type="text" class="buy-num buynum fleft" value="<%=cart_list[i].goods_num%>"/>
+                                        <span class="add-wp fleft">
+                                            <span class="i-add"></span>
+                                        </span>
+                                    </p>-->
+                            <% if(cart_list[i].goods_id != goods_id){ %>
+                            <span class="cart-list-del" cart_id="<%=cart_list[i].cart_id%>">
+                                <span class="i-del"></span>
+                            </span>
+                            <%}%>
+					   </div>
+                      </div>
+                     </li>
+				
+                    <%}%>
+					</ul>
+					<div class="car_list_bottom" style="position:fixed;bottom:0px;height:48px;width:100%;overflow:hidden; z-index:9999; background-color:#fff;">
+					<ul class="clearfix" style="display: inline-block;text-align: center;width: 100%;">
+					
+					<!--<li class="checkboxout1 floatl" style="float:left;">
+					 <span style="line-height:48px;display: inline-block; cursor: pointer;">
+					 <input type="checkbox" class="checkboxall" id="checkboxalls" name="xuankuang" value="" style="width: 35px; height:35px;vertical-align: middle;filter:alpha(opacity=0);
+-moz-opacity:0; opacity:0;">
+					 <label for="checkboxalls"></label>
+					 </span>
+					</li>
+					<li style="float:left;">
+				     <span style=" font-size:16px;color:#1f1f20;">&nbsp;全选</span>
+					</li>-->
+					
+                    <li class="cart-list-oitem " style="float:none;padding-right: 20px;">
+                       <span style="font-size:16px;color:#ff0000;"> 总计：<span class="clr-d94 total_price">￥<%=sum%></span></span>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)" class="goto-settlement">
+                      去结算
+                      </a>
+                    </li>
+                   <!-- <li>
+                        <a href="<%=WapSiteUrl%>/tmpl/product_list.html?gc_id=0" class="goto-shopping ">去逛逛</a>
+                    </li>-->
+					</ul>
+                </div>
+            <%}else{%>
+                <div class="no-record3 m10">
+                    <div><img src="../images/car_empty.png"/ style="width:70px;height:40px"></div>
+                    <div class="m10">(*>﹏<*)</div>
+                    <div class="m10">购物车空空如也</div>
+                    <div class="m10">&nbsp;&nbsp;快去逛逛吧~</div>
+                </div>
+                <div class="clear_all">
+                    <div class="clear_s" id="goto">再去逛逛吧～</div>
+                </div>
+            <%}%>
+            </script>
+        </div>
+    </div>
+     <div class="share_goods" id="share_goods"> 
+     </div>
+    <div id="footer"></div>
+
+  <div id='goods_ids'></div>
+  
+    <script type="text/javascript" src="../js/template.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/simple-plugin.js"></script>
+    <script type="text/javascript" src="../js/tmpl/common-top.js"></script>
+    <script type="text/javascript" src="../js/tmpl/footer.js"></script>
+    <script type="text/javascript" src="../js/tmpl/product_sharecart.js"></script>
+</body>
+</html>

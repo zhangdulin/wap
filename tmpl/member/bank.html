@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的朋友</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/member.css">
+</head>
+<body>
+    <header id="header"></header>
+    <div class="" id="con">
+
+
+    </div>
+
+    <a href="bank_update.html">修改</a>
+
+    <div class="footer" id="footer"></div>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/html" id="tpl1">
+
+		<ul>
+
+            <li>
+                帐户<%=name %>
+            </li>
+            <li>
+                银行<%=bank %>
+            </li>  <li>
+            帐号<%=card %>
+        </li>
+        </ul>
+
+	</script>    
+    <script type="text/javascript" src="../../js/config.js"></script>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/template.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+    <script type="text/javascript" >
+        var key = getcookie('key');
+        if (key == '') {
+            window.location.href = WapSiteUrl+'/tmpl/member/login.html';
+        }
+
+
+        $.ajax({
+            type: 'get',
+            data:{key:key},
+            url: ApiUrl + "/index.php?act=member_bank&op=show",
+            dataType: 'json',
+            success: function(result) {
+                var d=result.datas;
+                if (d) {
+                    var html = template.render('tpl1', d);
+                    $("#con").append(html);
+                }
+
+            }
+        });
+
+    </script>
+
+    <script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+</body>
+</html>

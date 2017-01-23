@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人资料</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="red">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/msg_list.css">
+</head>
+<body id="member_body" style="background:#fff">
+			<div class="item">
+				<span class="item_name">我的二维码</span><a href="javascript:void(0)"><span class="right_icon"></span></a>
+			</div>
+
+    <script type="text/javascript" src="../../js/config.js"></script>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/template.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/member_center.js"></script>
+    <!-- <script type="text/javascript" src="../../js/tmpl/footer.js"></script> -->
+    <script type="text/javascript" src="../../js/simple-plugin.js"></script>
+    
+    <script type="text/javascript" src="../../js/tmpl/member.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+</body>
+</html>

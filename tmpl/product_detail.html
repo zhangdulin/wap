@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商品详情</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/product_detail.css">
+</head>
+<body >
+	<header id="header">
+    </header>
+	<div id="product_detail_wp"></div>
+	<footer id="footer"></footer>
+	<script type="text/html" id="product_detail">
+		<div class="content" style=" background-color:#fff">
+			<div class="pddetail-cnt">
+				<div class="pddc-topwp" style=" background-color:#fff;">
+					<a href="javascript:void(0);" class="pddct-imgwp">
+						<div id='mySwipe'class='swiper-container'>
+						  <div class='swipe-wrap'>
+						  <% for(var i =0;i<goods_image.length;i++){　%>
+						      <div class="swipe-item"><img src="<%=goods_image[i]%>"/></div>
+						   <%}%>
+						  </div>
+						</div>
+						<div class="pddct-shadow"></div>
+						<div class="pddct-name-wp"></div>
+						<!-- <span class="pdpic-size-bg"></span>
+						<span class="pdpic-size">
+						 <span class="pds-cursize">1</span>/
+						 <span class="pds-tsize"><%=goods_image.length%></span>
+						</span> -->
+					</a>
+				</div>
+		<div class="clearfix" style=" height:44px;">
+			<span class="pddctnw-name">
+					<%=goods_info.goods_name%>
+			</span>
+			<li class="pd-collect-all" style="width: 50px;border-left: 1px solid #e8e8e8">
+		     <img src="../images/gooddetial/collo.png"  class="pd-collect-img"/>
+			 <span class="pd-collect">收藏</span>
+			</li>
+		</div>
+		<div style=" margin-top:10px;width:100%;">
+		 <ul class="clearfix">
+			<li class="clearfix" style="margin-top:4px;"><span style="margin-left:6px; color: #1c1c1c;font-size: 15px;">&nbsp;&nbsp;海外<span style="color:red; font-weight:500">直采保税</span>仓出货</span>
+			<span style="float:right; margin-right:10px;color: #1c1c1c;font-size: 14px;">小享专场满<span style="color:#fe0101;">168元</span>包邮</span>
+			</li>
+		  </ul>
+		</div>		
+	   <div class="border_r"></div>				
+		 <!-- <div class="pddc-gray-warp">
+	            <a href="product_info.html?goods_id=<%=goods_info.goods_id%>"  
+                  class="pddetail-go-title clearfix">
+	                <span class="pgt-title fleft">
+	                        图文详情
+	                 </span>
+	                 <span class="pgt-go fright">
+	                    <span class="i-go-right"></span>
+	                 </span>
+	            </a>
+	           </div> 
+			   <div class="pddc-property-one pddc-gray-warp">
+				   <div class="pddcp-one-wp ppdc-white-wrap">
+						<div class="pddcp-one-top">
+						    <ul>
+							  <%if(goods_info.goods_jingle){%>
+								<li class="clearfix">
+									<%=goods_info.goods_jingle%>
+								</li>
+								<%}%>
+								<% if (goods_info.promotion_type) {
+									var promo;
+									switch (goods_info.promotion_type) {
+										case 'groupbuy':
+										promo = '抢购';
+										break;
+										case 'xianshi':
+										promo = '限时折扣';
+										break;
+									}
+								%>
+								<li class="clearfix">
+									<span class="key">促销价：</span>
+									<div class="price value">
+										￥<%=goods_info.promotion_price%>
+									<% if (promo) { %>
+										（<%= promo %>）
+									<% } %>
+									</div>
+								</li>
+								<li class="clearfix">
+									<span class="key">原售价：</span>
+									<div class="value"><del style="padding-bottom:20px;">￥<%=goods_info.goods_price%></del></div>
+								</li>
+								<% } else { %>
+								<li class="clearfix">
+									<span class="key"></span><!--卖价-->
+		                    <div class="price value" style="font-size: 1.6em;padding-bottom: 0px;height: 46px;color: #fe0000;line-height: 46px;margin-left: 15px;">
+										￥<%=goods_info.goods_price%>		
+						    <!--新加布局立即购买-->
+							<li style="width: 30%; display: -webkit-inline-box;position: fixed;bottom: 0px;z-index: 9999; right: 29%;">
+							<% if (goods_info.is_virtual == '1') { %>
+								<div class="opera-pd-item buy-now" style="border-left: 1px solid #ededed;font-size: 16px;color: #000; height: 48px;line-height: 48px;width: 100%;text-align: center;">立即购买</div>
+							<% } else if (goods_info.is_presell == '1') { %>
+								<div class="opera-pd-item buy-now" style="margin: 0 auto;">预售购买</div>
+							<% } else if (goods_info.is_fcode == '1') { %>
+								<div class="opera-pd-item buy-now" style="margin: 0 auto;">F码购买</div>
+							<% } else { %>
+								<div class="opera-pd-item buy-now" style="border-left: 1px solid #ededed;font-size: 16px;color: #000; height: 48px;line-height: 48px;width: 100%;text-align: center;">立即购买</div>
+								<% } %>
+						   </li>			
+					    </div>
+						    </li>
+								<% } %>
+						<!--<li class="clearfix">
+						 <span class="key"></span><!--市场价-->
+						 <div class="value" style="margin-top: -30px;margin-left: 98px;font-size: 14px;"><del>￥<%=goods_info.goods_marketprice%></del></div>
+						 </li>
+						 <!--
+						  <li class="clearfix">
+							<span class="key">销量：</span>
+						    <div class="value"><%=goods_info.goods_salenum%>件</div>
+						  </li>
+						  -->
+						<% if (goods_info.is_virtual == '1') { %>
+								<li class="clearfix">
+									<span class="key">提货方式：</span>
+									<div class="value">电子兑换券</div>
+								</li>
+								<li class="clearfix">
+									<span class="key">有效期：</span>
+									<div class="value">
+										即日起 到 <%= goods_info.virtual_indate_str %>
+										<% if (goods_info.buyLimitation && goods_info.buyLimitation > 0) { %>
+										（每人次限购 <%= goods_info.buyLimitation %> 件）
+										<% } %>
+									</div>
+								</li>
+						<% } else { %>
+							<% if (goods_info.is_presell == '1') { %>
+								<li class="clearfix">
+									<span class="key">预售：</span>
+									<div class="value"><%= goods_info.presell_deliverdate_str %> 日发货</div>
+								</li>
+							<% } %>
+							<% if (goods_info.is_fcode == '1') { %>
+								<li class="clearfix">
+									<span class="key">购买类型：</span>
+									<div class="value">F码优先购买（每个F码优先购买一件商品）</div>
+								</li>
+							<% } %>
+						<% } %>
+							</ul>
+						</div>
+						<hr style="background-color: #f1f4f4;border: 0px;height:9px;margin-top: 20px;margin-bottom: 0px;"/>
+						<div class="pddcp-one-hide clearfix">
+					 	    <li style="display: inline-block; float:left;width:80px;text-align: center;margin-left: 4px;margin-top:10px;">
+							<img src="../images/gooddetial/logo1.png" style=" height:70px;margin:0 auto;">
+							<img src="../images/gooddetial/logo2.png" style="width:80px;margin:0 auto;padding-top: 5px;">
+							</li>
+							
+							<li class="clearfix floatr" style="width:72%;margin-right: 4px;line-height:18px;font-size:14px;word-spacing: 4px;">
+								<%=goods_info.goods_jingle%>
+							</li>
+						</div>
+						<hr style="background-color: #f1f4f4;border: 0px;height:9px;"/>
+					</div>
+				</div>
+			<% if (gift_array && !isEmpty(gift_array)) { %>
+				<div class="pddc-gray-warp">
+					<ul class="ppdc-white-wrap">
+						<li class="clearfix">
+							<span class="key">赠品：</span>
+							<div class="value">
+						<% for (var k in gift_array) { var v = gift_array[k]; %>
+								<div class="gift-item">
+									<a href="?goods_id=<%= v.gift_goodsid %>">
+										<%= v.gift_goodsname %>
+									</a>
+									&#215; <%= v.gift_amount %>
+								</div>
+						<% } %>
+							</div>
+						</li>
+						
+					</ul>
+				</div>
+			<% } %>
+				<div class="pddc-gray-warp">
+					<ul class="pddc-active ppdc-white-wrap">
+					<!--<li class="clearfix">
+							<span class="key">活动名称：</span>
+							<div class="value">
+								<%if(mansong_info && mansong_info.mansong_name){%>
+									<%=mansong_info.mansong_name%>
+								<%}else{%>
+									暂无
+								<%}%>
+							</div>
+						</li>
+						<li class="bd-tdashed-dd">
+							<span class="no-key">活动描述：</span>
+							<%
+								if (mansong_info != null && mansong_info.rules) {
+									for (var i =0;i<mansong_info.rules.length;i++){
+						    %>
+								<div class="no-value mt5">
+									单笔订单满<span class="clr-d94 mr5 ml5"><%=mansong_info.rules[i].price%></span>元
+								<% if (mansong_info.rules[i].discount > 0) { %>
+									，立减<span class="clr-green mr5 ml5"><%=mansong_info.rules[i].discount%></span>元
+								<% } %>
+								<% if (mansong_info.rules[i].goods_id != '0') { %>
+									，送礼品：
+									<p class="">
+										<img src="<%=mansong_info.rules[i].goods_image_url%>"/>
+									<p>
+								<% } %>
+								</div>
+								<%}}else {%>
+									暂无
+								<%}%>
+						</li>
+						-->
+					</ul>
+				</div>
+				<div class="pddc-gray-warp">
+					<ul class="pddc-stock ppdc-white-wrap">
+						<!--
+						<li class="pddc-stock-title clearfix">
+						
+							<span class="key">库存：</span>
+						
+							<div class="price value">
+								<span class="stock-num"><%=goods_info.goods_storage%></span>
+								件
+							</div>
+						</li>
+						-->
+						<% if(goods_map_spec.length>0){%>
+						<% for(var i =0;i<goods_map_spec.length;i++){%>
+						<li class="pddc-stock-spec bd-tdashed-dd">
+							<span class="key-no" spec_id="<%=goods_map_spec[i].id%>">
+								<%=goods_map_spec[i].goods_spec_name%>：
+							</span>
+							<div class="value-no mt10">
+								<%for(var j = 0;j<goods_map_spec[i].goods_spec_value.length;j++){%>
+									<a href="javascript:void(0);" <%if (goods_info.goods_spec[goods_map_spec[i].goods_spec_value[j].specs_value_id]){%> class="current" <%}%>specs_value_id = "<%=goods_map_spec[i].goods_spec_value[j].specs_value_id%>">
+										<%=goods_map_spec[i].goods_spec_value[j].specs_value_name%>
+										<i class="pd-choice-icon"></i>
+									</a>
+								<%}%>
+							</div>
+						</li>
+						<%}%>
+						<%}%>
+						<!--<li class="bd-tdashed-dd" style="height: 9px;color: #f1f4f4;">
+						
+							<span class="key-no">
+								数量：4
+							</span>
+						-->
+						  <!--<div class="value-no mt10 clearfix">
+								<span class="minus-wp fleft">
+										<span class="i-minus"></span>
+								</span>
+								<div class="iiii">
+								<input type="text" class="buy-num fleft" id="buynum" value="1"/>
+								</div>
+								<span class="add-wp fleft">
+									<span class="i-add"></span>
+								</span>
+							</div>
+						</li>-->
+						<!--<li class="bd-tdashed-dd">
+							<div class="opera-product-wp">
+							<% if (goods_info.is_virtual == '1') { %>
+								<div class="opera-pd-item buy-now">立即购买</div>
+							<% } else if (goods_info.is_presell == '1') { %>
+								<div class="opera-pd-item buy-now">预售购买</div>
+							<% } else if (goods_info.is_fcode == '1') { %>
+								<div class="opera-pd-item buy-now">F码购买</div>
+							<% } else { %>
+								<div class="opera-pd-item buy-now">立即购买</div>
+								<%if(goods_info.promotion_type!='groupbuy'){%>
+								<div class="opera-pd-item add-to-cart">加入购物车</div>
+								<%}%>
+							<% } %>
+							</div>
+						</li>-->
+					</ul>
+				</div>
+				<div class="pddc-gray-warp">
+				<div class="pddc-store">
+				</div>
+			    </div>
+				<% if (goods_combo_list && !isEmpty(goods_combo_list)) { %>
+				<div class="pddc-gray-warp">
+					<div class="pddc-commend-list">
+						<span class="pddc-commendl-title">组合推荐：</span>
+						<div class="pddc-commend-wp clearfix goods_combo">
+						<%all_goods_marketprice = 0%>
+						<%all_goods_price = 0%>
+						<%all_goods_id = ''%>
+							<%for (var i = 0;i<goods_combo_list.length;i++){%>
+								<a href="product_detail.html?goods_id=<%=goods_combo_list[i].goods_id%>">
+									<img src="<%=goods_combo_list[i].goods_image_url%>">
+									<span class="pddc-commendw-t" title="<%=goods_combo_list[i].goods_name%>">
+										<%=goods_combo_list[i].goods_name%>
+									</span>
+									<span class="pddc-commendw-price" title="￥<%=goods_combo_list[i].goods_price%>">￥<%=goods_combo_list[i].goods_price%><span style="text-decoration:line-through;color:gray; font-size:0.5em" ;="">￥<%=goods_combo_list[i].goods_marketprice;%></span></span>
+								</a>
+								<%all_goods_marketprice += strToint(goods_combo_list[i].goods_marketprice)%>
+								<%all_goods_price += strToint(goods_combo_list[i].goods_price)%>
+								<%all_goods_id += goods_combo_list[i].goods_id + '|'%>
+							<%}%>
+								<a href="javascript:void(0)" style="background-position:75px -220px;">
+									<img src="<%=goods_image[0]%>">
+									<span class="pddc-commendw-t" title="<%=goods_info.goods_name%>">
+										<%=goods_info.goods_name%>
+									</span>
+									<span class="pddc-commendw-price" title="￥<%=goods_info.goods_price%>">￥<%=goods_info.goods_price%><span style="text-decoration:line-through;color:gray; font-size:0.5em" ;="">￥<%=goods_info.goods_marketprice%></span></span>
+								</a>
+								<input type="hidden" id="gbcc_id" value="<%=all_goods_id+goods_info.goods_id%>">
+								<div class="combo-price">
+							    <dl>
+								    <dt>推荐购买组合</dt>
+								    <dd class="pddc-commendw-price">商城总价：¥<em nctype="gbcc_p"><%=strToint(all_goods_price)+strToint(goods_info.goods_price)%></em></dd>
+								    <dd style="text-decoration:line-through;color:gray; font-size:0.5em">市场总价：¥<em nctype="gbcc_mp"><%=strToint(all_goods_marketprice)+strToint(goods_info.goods_marketprice)%></em></dd>
+								    <div class="opera-pd-item add-to-cart-all">购买组合</div>
+							    </dl>
+							  </div>
+						</div>
+					</div>
+				</div>
+				<%}%>
+		<div class="pddc-gray-warp">
+			<div class="pddetail-go-title clearfix">
+                  <span class="pgt-title fleft">
+	                     	图文详情
+                    </span>
+	          </div>
+	       </div>
+	      <div  id="fixed-tab-pannel">
+              <div class="fixed-tab-pannel"></div>
+          </div>
+	<div class="pddc-gray-warp">
+	<!--<div class="pddc-commend-list">
+			<span class="pddc-commendl-title">&nbsp;&nbsp;&nbsp;&nbsp;商品推荐：</span>
+		 <div class="pddc-commend-wp clearfix" >
+				<%for (var i = 0;i<goods_commend_list.length;i++){%>
+								<a href="product_detail.html?goods_id=<%=goods_commend_list[i].goods_id%>">
+									<img src="<%=goods_commend_list[i].goods_image_url%>"/>
+									<span class="pddc-commendw-t" title="<%=goods_commend_list[i].goods_name%>">
+										<%=goods_commend_list[i].goods_name%>
+									</span>
+									<span class="pddc-commendw-price" title="￥<%=goods_commend_list[i].goods_price%>">￥<%=goods_commend_list[i].goods_price%><span style="text-decoration:line-through;color:gray; font-size:0.5em" ;="">￥<%=goods_commend_list[i].goods_marketprice;%></span></span>
+                                 <div class="dddd"></div>
+								</a>
+							<%}%>
+						</div>
+					</div>-->
+				</div>
+<!--<div class="pddc-gray-warp" id="product_comment"></div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </script>
+<!--<script type="text/html" id="comment_list_tmp">
+	<div class="pddc-commend-list">
+		<span class="pddc-commendl-title">商品评价：</span>
+	<div class="pddc-commend-wp clearfix">
+	<div class="ncs-comment" style=" width:100%; height:auto;">
+	<div class="ncs-goods-title-bar hd" style="display: none;">
+          <h4><a href="javascript:void(0);">商品评价</a></h4>
+        </div>
+        <div class="ncs-goods-info-content bd" id="ncGoodsRate">
+          <div class="top">
+            <div class="rate">
+              <p><strong><%=goods_evaluate_info.good_percent%></strong><sub>%</sub>好评</p>
+              <span>共有<%=goods_evaluate_info.all %>人参与评分</span></div>
+            <div class="percent">
+              <dl>
+                <dt>好评<em>(<%=goods_evaluate_info.good_percent%>%)</em></dt>
+                <dd><i style="width: <%=goods_evaluate_info.good_percent%>%"></i></dd>
+              </dl>
+              <dl>
+                <dt>中评<em>(<%=goods_evaluate_info.normal_percent%>%)</em></dt>
+                <dd><i style="width: <%=goods_evaluate_info.normal_percent%>%"></i></dd>
+              </dl>
+              <dl>
+                <dt>差评<em>(<%=goods_evaluate_info.bad_percent%>%)</em></dt>
+                <dd><i style="width: <%=goods_evaluate_info.bad_percent%>%"></i></dd>
+              </dl>
+            </div>
+            <div class="btns"><span>您可对已购商品进行评价</span>
+              <p><a href="/wap/tmpl/member/order_list.html" class="ncs-btn ncs-btn-red" target="_blank"><i class="icon-comment-alt"></i>评价商品</a></p>
+            </div>
+          </div>
+          <div class="comment_detail">
+              	<%for (var i = 0; i < goodsevallist.length; i++) {%>
+              		<li>
+              		<div class="user"><b><%=goodsevallist[i].geval_frommembername%></b> 用户评分：<span class="raty" data-score="<%=goodsevallist[i].geval_scores%>" style="display:inline-block"></span></div>
+              		<div class="detail">
+	              		<%if (goodsevallist[i].geval_content) {%><p>评价详情: <%=goodsevallist[i].geval_content%></p><%}%>
+	              		<%if (goodsevallist[i].geval_explain) {%><p style="text-indent:28px; font-size:12px;color:red">商家解释: <%=goodsevallist[i].geval_explain%></p> <%}%>
+	              		<%if (goodsevallist[i].geval_content_append) {%><p>追加评价: <%=(goodsevallist[i].geval_content_append)%></p><%}%>
+              		</div>
+              		</li>
+              	<%}%>
+          </div>
+          	</div>
+        </div>
+</script>-->
+<!--<script type="text/html" id="comment_list_tmp">
+	<div class="pddc-commend-list">
+	<div class="pddc-commend-list-na" style=" border-bottom:1px solid #f1f4f4; border-top:8px solid #f1f4f4;    background-color: #fff;">
+		<span class="pddc-commendl-title" style="font-size:15px;color:#1c1c1c; margin-left:10px;">小享心得精选(<span><%=goods_evaluate_info.all %></span>)</span>
+		<a href="/wap/tmpl/member/order_list.html" ><span class="floatr" style=" font-size:14px; color:#959494;margin-right:10px;line-height: 30px;">查看全部心得 ></span></a>
+		</div>
+		<div class="pddc-commend-wp clearfix">
+	<div class="ncs-comment" style=" width:100%; height:auto;">
+	<div class="ncs-goods-title-bar hd" style="display: none;">
+          <h4><a href="javascript:void(0);">商品评价</a></h4>
+        </div>
+        <div class="ncs-goods-info-content bd" id="ncGoodsRate">
+          <div class="top">
+            <div class="rate">
+              <p><strong><%=goods_evaluate_info.good_percent%></strong><sub>%</sub>好评</p>
+              <span>共有<%=goods_evaluate_info.all %>人参与评分</span></div>
+            <div class="percent">
+              <dl>
+                <dt>好评<em>(<%=goods_evaluate_info.good_percent%>%)</em></dt>
+                <dd><i style="width: <%=goods_evaluate_info.good_percent%>%"></i></dd>
+              </dl>
+              <dl>
+                <dt>中评<em>(<%=goods_evaluate_info.normal_percent%>%)</em></dt>
+                <dd><i style="width: <%=goods_evaluate_info.normal_percent%>%"></i></dd>
+              </dl>
+              <dl>
+                <dt>差评<em>(<%=goods_evaluate_info.bad_percent%>%)</em></dt>
+                <dd><i style="width: <%=goods_evaluate_info.bad_percent%>%"></i></dd>
+              </dl>
+            </div>
+            <div class="btns"><span>您可对已购商品进行评价</span>
+              <p><a href="/wap/tmpl/member/order_list.html" class="ncs-btn ncs-btn-red" target="_blank"><i class="icon-comment-alt"></i>评价商品</a></p>
+            </div>
+          </div>
+          <div class="comment_detail">
+              	<%for (var i = 0; i < goodsevallist.length; i++) {%>
+              		<li>
+              		<div class="user"><b><%=goodsevallist[i].geval_frommembername%></b> 用户评分：<span class="raty" data-score="<%=goodsevallist[i].geval_scores%>" style="display:inline-block"></span></div>
+              		<div class="detail">
+	              		<%if (goodsevallist[i].geval_content) {%><p>评价详情: <%=goodsevallist[i].geval_content%></p><%}%>
+	              		<%if (goodsevallist[i].geval_explain) {%><p style="text-indent:28px; font-size:12px;color:red">商家解释: <%=goodsevallist[i].geval_explain%></p> <%}%>
+	              		<%if (goodsevallist[i].geval_content_append) {%><p>追加评价: <%=(goodsevallist[i].geval_content_append)%></p><%}%>
+              		</div>
+              		</li>
+              	<%}%>
+          </div>
+          	</div>
+        </div>
+	</script>-->
+<div class="opera-pd-item add-to-cart">加入购物车</div>
+<div class="iiii clearfix" style=" width: 100%; height:48px;background-color:#fff;position:fixed;bottom:0;">
+ 	<span class="add-wp floatr" >
+      <span style=" font-size:16px;color:#fff;display:inline-block;">加入购物车</span>
+  	</span>
+  	<input type="text" class="buy-num floatr" id="buynum" value="1" style="opacity: 0;filter: alpha(opacity=0);-moz-opacity: 0;" />
+    <input type="text" class="buy-num1 floatr" id="buynum1" name="buynum1" value=""/>
+  	<a href="cart_list.html">
+  	<img src="../images/lo2.png"/ class="floatr" style="margin: 9px 2px 0 0; height:30px;right: 68%;
+    position: absolute;">
+  	</a>
+ <!--<script type="text/html" id="cart-list"> 
+ <p class="mt5" style="margin-top：20px;">
+  商品总价：￥<span class="goods-total-price"><%=cart_list[i].goods_sum%></span></p
+ </script>-->
+    <a href="/wap/index.html">
+    <img src="../images/lo1.png" style=" height:30px; margin: 9px 0 0 10px;" />
+    </a>
+</div>
+	<script type="text/javascript" src="../js/zepto.min.js"></script>
+	<script type="text/javascript" src="../js/config.js"></script>
+	<script type="text/javascript" src="../js/template.js"></script>
+	<script type="text/javascript" src="../js/swipe.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/simple-plugin.js"></script>
+	<script type="text/javascript" src="../js/tmpl/common-top.js"></script>
+	<script type="text/javascript" src="../js/tmpl/product_footer.js"></script>
+	<script type="text/javascript" src="../js/tmpl/product_detail.js"></script>
+</body>
+</html>

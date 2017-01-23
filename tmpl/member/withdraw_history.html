@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提现记录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/member-distribution.css">
+</head>
+<body style="background-color:#f2f2f2;">
+<header id="header"></header>
+<div class="footer" id="footer"></div>
+<!--<script type="text/html" id="withdraw_history_list">
+     <%if(withdraw_history_list.length>0){%>-->
+		 <ul class="widhdraw_hist clearfix" >
+			<!--<%for(var i=0;i<withdraw_history_list.length;i++){%>-->
+            <li style="width:35%; border:none;">
+				<span id="" style="padding-left:4px;"><!--<%=withdraw_histoty_list[i].time %>--></span>
+			</li> 		 
+			<li>
+				<span id="" style="color:#101010;"><!--<%=withdraw_histoty_list[i].bank %>--></span>
+			</li> 			
+			<li>
+				<span id="" style="color:#101010;"><!--<%=withdraw_histoty_list[i].money %>--></span>
+			</li> 		
+			<li >
+				  <!--<%if(){%>--><span style=" color:#ff0000;">成功</span>
+                  <!--<%}else{%> --><span style=" color:#00c838;">申请中</span>
+                  <!--<%}%>-->             
+			</li> 	 
+		    <!--<%}%>-->
+         </ul>
+       <!--<%}else{%>-->
+        <div style="text-align:center; margin-top:60px;"> 		
+            <p style=" font-size:16px; color:#1c1c1c;">您还没有提现记录</p>
+        </div>
+       <!--<%}%>-->
+	<!--</script>-->
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/config.js"></script>
+<script type="text/javascript" src="../../js/zepto.min.js"></script>
+<script type="text/javascript" src="../../js/template.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+<script type="text/javascript" src="../../js/tmpl/withdraw_history.js"></script>
+</body>
+</html>

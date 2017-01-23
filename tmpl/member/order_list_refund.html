@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>退款/售后</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../css/member.css">
+</head>
+<body style=" max-width:640px; min-width:320px; margin:0 auto;">
+  <header id="header"></header>
+    <div class="order-list-wp" id="order-list" style="width: 100%;overflow: hidden;">
+    </div>
+ <script type="text/html" id="order-list-tmpl">
+  <div class="order-list">
+  <%if (order_group_list.length >0){%>
+    <ul>
+  <%for(var i = 0;i<order_group_list.length;i++){
+    var orderlist = order_group_list[i].order_list; %>
+    <li class="<%if(order_group_list[i].pay_amount)
+    {%>green-order-skin<%
+    }else{%>gray-order-skin<%}%> 
+    <%if(i>0)
+    {%><%}%>">
+  <% for(var j = 0;j<orderlist.length;j++){
+    var order_goods = orderlist[j].extend_order_goods; %>
+    <div class="order-lcnt">
+     <div class="order-shop-pd">
+  <%for (var k = 0;k<order_goods.length;k++){%>
+     <a class="order-ldetail clearfix <%if(k>0){%>bd-t-de<%}%>" href="<%=WapSiteUrl%>/tmpl/product_detail.html?goods_id=<%=order_goods[k].goods_id%>">
+      <span class="order-pdpic">
+      <img src="<%=order_goods[k].goods_image_url%>"/>
+      </span>
+    <div class="order-pdinfor clearfix">
+     <p><%=order_goods[k].goods_name%></p>
+      <p style="float: right;margin-top:10px;padding: 0 0 0 50px;">
+       <span class="clr-d94">￥<%=order_goods[k].goods_price%></span>
+      </p>
+      <p style="float:right;margin-top:8px;padding-left: 80%;">
+        <span >×<%=order_goods[k].goods_num%></span>
+      </p>
+    </div>
+     </a>
+     <%}%>
+    </div>
+    <div class="order-shop-total">
+	<p class="floatl">
+     <!--状态改变-->  
+    <%var stateClass ="ot-finish";
+     var orderstate = orderlist[j].order_state;
+      if(orderstate == 20 || orderstate == 30 || orderstate == 40){
+      stateClass = stateClass;
+      }else if(orderstate == 0) {
+      stateClass = "ot-cancel";
+      }else { stateClass = "ot-nofinish";
+   } %>
+    <span class="<%=stateClass%>">申请退款中/退款成功<!--<%=orderlist[j].state_desc%>--></span>
+    </p>
+    <p><span class="clr-c07">合计：<span style=" font-weight:600;color:#1c1c1c;">￥<%=orderlist[j].order_amount%> </span></span><span>（含运费：<span class="clr-d94">￥<%=orderlist[j].shipping_fee%></span>）</span></p>
+    <div class="order-bottom-three">
+     <ul class="order-bottom-threes">
+	  <li>
+	  <a href="order_list_Detailsrefund .html"><p class="mt5"><span class="order-bottom-three-bor" ><span style="color:#1c1c1c;display: inline-block;">退款详情</span></span></p></a>
+	  </li>
+      <li><a href="tel:15000238169"><span class="order-bottom-three-bor" ><span style="color:#1c1c1c;display: inline-block;">联系客服</span></span></a>
+     </li>
+	 <li> 
+	 <a href="order_list_moneywhere.html" style="padding:0;"><span class="order-bottom-three-bor" style=" border:1px solid #feb0cd;"><span style="color:#f24d89;display: inline-block;">钱款去向</span></span></a>
+     </li>
+     </ul>
+    </div>						   
+    </div>
+    </div>
+    <%}%>
+    </li>
+      <%}%>
+    </ul>
+    <div class="pagination mt10">
+        <a href="javascript:void(0);" class="pre-page <%if(curpage <=1 ){%>disabled<%}%>">上一页</a>
+        <a href="javascript:void(0);" has_more="<%if (hasmore){%>true<%}else{%>false<%}%>"  class="next-page <%if (!hasmore){%>disabled<%}%>">下一页</a>
+    </div>
+        <%}else {%>
+    <div class="no-record">
+            暂无记录
+    </div>
+       <%}%>
+    </div>
+    </script>
+    <div id="footer"></div>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/template.js"></script>
+    <script type="text/javascript" src="../../js/config.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/simple-plugin.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/common-top.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/order_list.js"></script>
+    <script type="text/javascript" src="../../js/layer.m/layer.m.js"></script>
+</body>
+</html>
